@@ -1,0 +1,68 @@
+
+
+1) Activar GZIP
+
+app.use(express.compress());
+
+2) Agregar cache a recursos estaticos
+
+app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
+	res.set('Cache-Control', 'max-age=3000000');
+    next();
+});
+
+3) Unificar y minimizar archivos estaticos
+
+	Minimizar
+
+		 <link rel='stylesheet' href='/stylesheets/chico-0.13.2.css' />
+
+		 -->
+
+		 <link rel='stylesheet' href='/stylesheets/chico-min-0.13.2.css' />
+
+	Unificar & minimizar
+
+	 	<link rel='stylesheet' href='/stylesheets/local.css' />
+	    <link rel='stylesheet' href='/stylesheets/app.css' />
+
+	    -->
+
+	    <link rel='stylesheet' href='/stylesheets/local-app.css' />
+
+	Minimizar
+
+		<script src='/javascripts/jquery-1.10.2.js' ></script>
+
+		 -->
+
+		<script src='/javascripts/jquery-1.10.2.min.js' ></script>
+
+	Unificar & minimizar
+
+	 	<script src='/javascripts/jquery.lazyload.js' ></script>
+    	<script src='/javascripts/app.js' ></script>
+
+	    -->
+
+	    <script src='/javascripts/all.js' ></script>
+
+
+4) Dominios sin cookies para estaticos
+
+TODO: agregar una variable para que se pueda cambiar tocando un solo lugar
+
+5) Multiples dominios para paralelizar descargas
+
+TODO: agregar una variable para que se pueda cambiar tocando un solo lugar
+
+6) Optimizar imagenes
+
+//6
+<img src="/images/music-icon.png" />
+
+<img src="/images/music-icon-optimized.png" />
+
+music-icon.png
+
+

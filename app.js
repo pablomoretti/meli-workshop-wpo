@@ -15,6 +15,9 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+//1
+
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -22,10 +25,23 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+//1
+app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
+	res.set('Cache-Control', 'max-age=3000000');
+    next();
+});
+
+app.all('*', function(req, res, next){
+	res.set('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 
 app.get('/', routes.index);
 app.get('/users', user.list);
