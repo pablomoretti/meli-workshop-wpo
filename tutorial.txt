@@ -1,5 +1,4 @@
 
-
 1) Activar GZIP
 
 app.use(express.compress());
@@ -11,7 +10,17 @@ app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function
     next();
 });
 
-3) Unificar y minimizar archivos estaticos
+3) 
+a) Progressive render
+Agregar js y css inline en el ejemplo
+quitar style=""
+quitar js en eventos onclick onfocus
+
+quitar inline, agregar al unificado, el js que no se puede ponerlo después del onload
+
+b) stylesheets on top , javascript to the bottom
+
+c) Unificar y minimizar archivos estaticos
 
 	Minimizar
 
@@ -64,5 +73,29 @@ TODO: agregar una variable para que se pueda cambiar tocando un solo lugar
 <img src="/images/music-icon-optimized.png" />
 
 music-icon.png
+
+7) Agregar dominio extra para aumentar descargas en paralelo de imagenes
+<img src="images1.myapp.com/images/music-icon-optimized.png" />
+<img src="images2.myapp.com/images/music-icon-optimized.png" />
+
+8) Sprites, GIF x PNG8, Icon Fonts
+
+
+9) Escenario con pixeles de trackeo
+Corregir el loading para no blockear descargas, render y onload
+
+10) Js que dibuje cosas ( agregar elementos, rows ) con problemas de repaint/relayout
+Fix de eso
+
+11) Agregar segunda pagina, prefetch de componentes
+DNS
+IMAGENES
+PAGINA COMPLETA
+
+12) Imagen grande, agregar jsp progressive o webp
+
+
+
+
 
 
