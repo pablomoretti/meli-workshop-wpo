@@ -50,19 +50,144 @@ app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function
 
 4) Dominios sin cookies para estaticos
 
-TODO: agregar una variable para que se pueda cambiar tocando un solo lugar
+//4
 
 5) Multiples dominios para paralelizar descargas
 
-TODO: agregar una variable para que se pueda cambiar tocando un solo lugar
+//5
 
 6) Optimizar imagenes
 
 //6
-<img src="/images/music-icon.png" />
 
-<img src="/images/music-icon-optimized.png" />
+<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
 
-music-icon.png
+<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
+
+
+7) Base64
+
+El mejor request es el que nunca se dispara 
+
+<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
+
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAlCAIAAABZK/egAAAB3ElEQVRYw+3Yv6tBURwA8BMG8qMUkUEpyiKzxchksEi3KGXwB4jBJAYLysqgFKNBLBZFFn8AFowkMtAdkPetV6/3/LjX5Z5z3+vd7/zt9Ol8z7nn+73o8jsCiQ6yjtVqJZjjfD73+/14PG6z2RBCTqdzv9+TcxwOh2azGYlE9Ho9+hm1Wg27Y7lcVioVn8+nUCjQgyiVSrgc4/E4l8u5XC6JRILYgn8HbH4qlfos/PPBvyMcDiPuwb+D607gclitVtHB3SGVSt1udz6fN5lMAjiUSqXf769Wq+v1+ns+IYfBYIhGo61Wi6bpu/l4HXa7PZlMDodDeFCY83E5gsHgdDp9Ph+Xg3XdP+qgxf3A5xiNRvAUezweh8MB7Ug6nW6322azmZxjt9tRFCXAd/1q3VgsJsz7crWu0WhkdpTL5bccx+NxMpn0er35fM7gYC6KTCaDHvbFezubzUKhkFar/VpOp9N5vV6NRnPrWCwW0KjeRahUKnj22Hb5gaPb7arVak71Pp1O9Xo9EAhYLBa5XA6jA8iy2SwQX5+joHV489zxM1eyNjudToeEo1AoMCBACVUgNGfDJAjdze3Jh6ux3W6JzvvQ3QwGg2KxmEgkMplMo9HYbDbi/49/5fgAKsaDdCzdbP0AAAAASUVORK5CYII=">
+
+
+8) Lazy images
+
+	<img width="900" height="2800" src="<%=createImageLink('/images/big-image.jpg')%>" >
+
+	<img class="lazy" width="900" height="2800" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image.jpg')%>" >
+
+9) Sprite
+
+	TODO:
+
+10) WebP
+
+	  <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+
+	  <img width="900" height="2800" src="<%=createImageLink(convertWebP('/images/big-image-optimized.jpg'))%>" >
+
+
+12) Javascript
+
+ - Lo movemos al abajo 
+
+ - Lo ejecutamos asyncronicamente, pero lo tenemos que unificar
+
+ - Lo cargarmos onload
+
+ - Si queremos compartir cache tenemos que dividirlo por lo tanto 
+
+ - Librerias
+
+ 	-> LABS.js
+ 	-> yepnope
+ 	-> jcors-loader
+
+
+12) Iteration javascpt
+
+function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+14) Javascript de terceros
+
+Facebook SDK (Like bottom)
+
+		 <script>
+	(function() {
+	  var url = '//connect.facebook.net/en_US/all.js';
+	  var iframe = document.createElement('iframe');
+	  (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0";
+	  iframe.src = "javascript:false";
+	  document.getElementById('fb-root').appendChild(iframe);
+	  var doc = iframe.contentWindow.document;
+	  doc.open().write('<body onload="'+
+	    'window.inDapIF = true;' +
+	    'var js = document.createElement(\'script\');'+
+	    'js.src = \''+ url +'\';'+
+	    'document.body.appendChild(js);">');
+	  doc.close();
+	}());
+
+	// async init once loading is done
+	window.fbAsyncInit = function() {
+	  FB.init({xfbml: true});
+	};
+	</script>
+
+15) Ads (internos y externos)
+
+	  <script>
+
+	  	(function(url) {
+							var iframe = document.createElement('iframe');
+							(iframe.frameElement || iframe).style.cssText =
+							  "width: 0; height: 0; border: 0; position: absolute";
+							iframe.src = "javascript:false";
+							iframe.id = "ads-init-frame";
+							var where = document.getElementsByTagName('script')[0];
+							where.parentNode.insertBefore(iframe, where);
+							var doc = iframe.contentWindow.document;
+							doc.open().write('<body onload="'+
+							 	'var js = document.createElement(\'script\');'+
+								'js.src = \''+ url +'\';'+
+								'document.body.appendChild(js);">');
+							doc.close();
+						}("/static/ads-friendly-iframe.js"));
+	  
+	  </script>
+
+
+16 ) Precache
+
+Estandar DNS
+
+    <link rel="dns-prefetch" href="//www.domain2.com">
+
+17)
+
+Mejora progresiva
+	- Buscador, popup, modales, carruseles
+
+
+17 ) Trakeos de ML
+
+Estaremos migrando las dejavu 1 y dejavu 2 ya esta funcionado sin bloquear.
+
+Google Analytics
+
+Estamos trabajando en esto  !!!
+
+
+
+
 
 

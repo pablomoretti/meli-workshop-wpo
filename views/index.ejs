@@ -6,42 +6,41 @@
 <!--[if gt IE 9]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
 <head>
     <title><%= title %></title>
- 	<link rel='stylesheet' href='/stylesheets/chico-0.13.2.css' />
- 	<link rel='stylesheet' href='/stylesheets/local.css' />
-    <link rel='stylesheet' href='/stylesheets/app.css' />
-    <script src='/javascripts/jquery-1.10.2.js' ></script>
-    <script src='/javascripts/jquery.lazyload.js' ></script>
-    <script src='/javascripts/app.js' ></script>
+ 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.2.css')%>' />
+ 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
+    <link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
+    <script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+    <script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+    <script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+
   </head>
   <body>
 	  <h1><%= title %></h1>
 
-	  
+	  <a href="/page"> Next Page </a> <br><br>
 
+	  <!-- //6 --> <!-- //7 -->
+	  <img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
 
-	  <!-- //6 -->
-	  <img src="/images/music-icon.png" /> <br>
+	  <img src="<%=createImageLink('/images/item1.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item2.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item3.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item4.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item5.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item6.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item7.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item8.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item9.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item10.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item11.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item12.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item13.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item14.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item15.jpg')%>" width="90" height="90"><br>
+	  <img src="<%=createImageLink('/images/item16.jpg')%>" width="90" height="90"><br>
 
-
-	  <img src="/images/item1.jpg" width="90" height="90"><br>
-	  <img src="/images/item2.jpg" width="90" height="90"><br>
-	  <img src="/images/item3.jpg" width="90" height="90"><br>
-	  <img src="/images/item4.jpg" width="90" height="90"><br>
-	  <img src="/images/item5.jpg" width="90" height="90"><br>
-	  <img src="/images/item6.jpg" width="90" height="90"><br>
-	  <img src="/images/item7.jpg" width="90" height="90"><br>
-	  <img src="/images/item8.jpg" width="90" height="90"><br>
-	  <img src="/images/item9.jpg" width="90" height="90"><br>
-	  <img src="/images/item10.jpg" width="90" height="90"><br>
-	  <img src="/images/item11.jpg" width="90" height="90"><br>
-	  <img src="/images/item12.jpg" width="90" height="90"><br>
-	  <img src="/images/item13.jpg" width="90" height="90"><br>
-	  <img src="/images/item14.jpg" width="90" height="90"><br>
-	  <img src="/images/item15.jpg" width="90" height="90"><br>
-	  <img src="/images/item16.jpg" width="90" height="90"><br>
-	    
-	  <img class="lazy" width="900" height="2800" src="/images/big-image.jpg" >
-
+	  <!-- //10 -->
+	  <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 
   </body>
 </html>

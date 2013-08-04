@@ -5,5 +5,21 @@
 
 exports.index = function(req, res){
 
-  res.render('index', { title: process.env.DYNO != null });
+	var model = {
+		'title' : 'HOME',
+		'req'	: req
+	};
+
+  	res.render('index', model);
+};
+
+
+exports.page = function(req, res){
+
+	var model = {
+		'title' : 'PAGE',
+		'req'	: req
+	};
+
+  	res.render('page', model);
 };
