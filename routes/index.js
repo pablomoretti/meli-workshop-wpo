@@ -5,5 +5,5 @@
 
 exports.index = function(req, res){
 
-  res.render('index', { title: JSON.stringify(process.env) });
+  res.render('index', { title: process.env.DYNO =! null });
 };
