@@ -4,6 +4,8 @@ var locaJqueryWindow = $(window);
 
 (function imageLazy(jqueryWindow){
 
+	var isLoadead = (document.readyState === "complete");
+
 	function lazyImages(){
 		var obj;
 		$("img.lazy").each(function changeSouce(){
@@ -12,7 +14,12 @@ var locaJqueryWindow = $(window);
 	  	});
 	}
 
-	jqueryWindow.load(lazyImages);
+	if (isLoadead) {
+		lazyImages();
+	}else{
+		jqueryWindow.load(lazyImages);
+	}
+	
 
 })(locaJqueryWindow);
 

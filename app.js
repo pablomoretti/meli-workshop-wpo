@@ -15,11 +15,11 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-//1
+//1//
 
 
 //enviroment
-global.isDev = (!process.env.DYNO != null);
+var isDev = (!process.env.DYNO != null);
 
 
 String.prototype.hashCode = function(){
@@ -33,19 +33,26 @@ String.prototype.hashCode = function(){
     return hash;
 }
 
-//4
-app.locals.createStaticLink = function(paht) {
-  //console.log(this.req.get('User-Agent').indexOf('Chrome') != -1);
-  return ('http://dev-meli-workshop-wpo.herokuapp.com' + ':3000' + paht);
-  //return ('http://dev-meli-wpo-static.zapto.org' + ':3000' + paht);
+function enviromentHost(url){
+  return url.replace('dev-','');
 }
 
-//5
+//4//
+var staticHost = 'http://dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'');
+
+app.locals.createStaticLink = function(paht) {
+  return (staticHost + paht);
+}
+
+//5//
+var imagesHost = [
+  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'')),
+  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':''))
+  ];
+
 app.locals.createImageLink = function(paht) {
-  //var domains = ['dev-meli-wpo1.zapto.org','dev-meli-wpo2.zapto.org'];
-  var domains = ['dev-meli-workshop-wpo.herokuapp.com','dev-meli-workshop-wpo.herokuapp.com'];
-  var pos = Math.abs(paht.hashCode()) % domains.length;
-  return ('http://' + domains[pos] + ':3000' + paht);
+  var pos = Math.abs(paht.hashCode()) % imagesHost.length;
+  return (imagesHost[pos] + paht);
 }
 
 
@@ -71,11 +78,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//1
-app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
-	res.set('Cache-Control', 'max-age=3000000');
-    next();
-});
+//2//
+
+
 
 app.all('*', function(req, res, next){
 	res.set('Access-Control-Allow-Origin', '*');

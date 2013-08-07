@@ -1,4 +1,6 @@
 
+Buscar //X//
+
 1) Activar GZIP
 
 app.use(express.compress());
@@ -10,84 +12,104 @@ app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function
     next();
 });
 
-3) 
-a) Progressive render
-Agregar js y css inline en el ejemplo
-quitar style=""
-quitar js en eventos onclick onfocus
-
-quitar inline, agregar al unificado, el js que no se puede ponerlo después del onload
-
-b) stylesheets on top , javascript to the bottom
-
-c) Unificar y minimizar archivos estaticos
-
-	Minimizar
-
-		 <link rel='stylesheet' href='/stylesheets/chico-0.13.2.css' />
-
-		 -->
-
-		 <link rel='stylesheet' href='/stylesheets/chico-min-0.13.2.css' />
+3) Unificar y minimizar archivos estaticos
 
 	Unificar & minimizar
 
-	 	<link rel='stylesheet' href='/stylesheets/local.css' />
-	    <link rel='stylesheet' href='/stylesheets/app.css' />
+ 		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
+    	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
 
 	    -->
 
-	    <link rel='stylesheet' href='/stylesheets/local-app.css' />
+		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local-app.css')%>' />
 
 	Minimizar
 
-		<script src='/javascripts/jquery-1.10.2.js' ></script>
+ 		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.2.css')%>'/>
 
 		 -->
 
-		<script src='/javascripts/jquery-1.10.2.min.js' ></script>
+		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-min-0.13.2.css')%>'/>
+
+
+	Minimizar
+
+	    <script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+
+		 -->
+
+		<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
+
 
 	Unificar & minimizar
 
-	 	<script src='/javascripts/jquery.lazyload.js' ></script>
-    	<script src='/javascripts/app.js' ></script>
+		<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+    	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
 
 	    -->
 
-	    <script src='/javascripts/all.js' ></script>
+    	<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
 
 
 4) Dominios sin cookies para estaticos
 
-//4
+	var staticHost = 'http://dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'');
+
+	-->
+
+	var staticHost = 'http://dev-wpo-static.zapto.org' + ((isDev)?':3000':'');
+
 
 5) Multiples dominios para paralelizar descargas
 
-//5
+	var imagesHost = [
+	  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'')),
+	  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':''))
+	  ];
+
+  	-->
+
+	var imagesHost = [
+	  ('http://' + 'dev-meli-wpo1.zapto.org' + ((isDev)?':3000':'')),
+	  ('http://' + 'dev-meli-wpo2.zapto.org' + ((isDev)?':3000':''))
+	  ];
 
 6) Optimizar imagenes
 
-//6
+	<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
 
-<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
+	-->
 
-<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
-
-
-7) Base64
-
-El mejor request es el que nunca se dispara 
-
-<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
-
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAlCAIAAABZK/egAAAB3ElEQVRYw+3Yv6tBURwA8BMG8qMUkUEpyiKzxchksEi3KGXwB4jBJAYLysqgFKNBLBZFFn8AFowkMtAdkPetV6/3/LjX5Z5z3+vd7/zt9Ol8z7nn+73o8jsCiQ6yjtVqJZjjfD73+/14PG6z2RBCTqdzv9+TcxwOh2azGYlE9Ho9+hm1Wg27Y7lcVioVn8+nUCjQgyiVSrgc4/E4l8u5XC6JRILYgn8HbH4qlfos/PPBvyMcDiPuwb+D607gclitVtHB3SGVSt1udz6fN5lMAjiUSqXf769Wq+v1+ns+IYfBYIhGo61Wi6bpu/l4HXa7PZlMDodDeFCY83E5gsHgdDp9Ph+Xg3XdP+qgxf3A5xiNRvAUezweh8MB7Ug6nW6322azmZxjt9tRFCXAd/1q3VgsJsz7crWu0WhkdpTL5bccx+NxMpn0er35fM7gYC6KTCaDHvbFezubzUKhkFar/VpOp9N5vV6NRnPrWCwW0KjeRahUKnj22Hb5gaPb7arVak71Pp1O9Xo9EAhYLBa5XA6jA8iy2SwQX5+joHV489zxM1eyNjudToeEo1AoMCBACVUgNGfDJAjdze3Jh6ux3W6JzvvQ3QwGg2KxmEgkMplMo9HYbDbi/49/5fgAKsaDdCzdbP0AAAAASUVORK5CYII=">
+	<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
 
 
-8) Lazy images
+7) data: base64
 
-	<img width="900" height="2800" src="<%=createImageLink('/images/big-image.jpg')%>" >
+	<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
 
-	<img class="lazy" width="900" height="2800" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image.jpg')%>" >
+	-->
+
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAlCAIAAABZK/egAAAB3ElEQVRYw+3Yv6tBURwA8BMG8qMUkUEpyiKzxchksEi3KGXwB4jBJAYLysqgFKNBLBZFFn8AFowkMtAdkPetV6/3/LjX5Z5z3+vd7/zt9Ol8z7nn+73o8jsCiQ6yjtVqJZjjfD73+/14PG6z2RBCTqdzv9+TcxwOh2azGYlE9Ho9+hm1Wg27Y7lcVioVn8+nUCjQgyiVSrgc4/E4l8u5XC6JRILYgn8HbH4qlfos/PPBvyMcDiPuwb+D607gclitVtHB3SGVSt1udz6fN5lMAjiUSqXf769Wq+v1+ns+IYfBYIhGo61Wi6bpu/l4HXa7PZlMDodDeFCY83E5gsHgdDp9Ph+Xg3XdP+qgxf3A5xiNRvAUezweh8MB7Ug6nW6322azmZxjt9tRFCXAd/1q3VgsJsz7crWu0WhkdpTL5bccx+NxMpn0er35fM7gYC6KTCaDHvbFezubzUKhkFar/VpOp9N5vV6NRnPrWCwW0KjeRahUKnj22Hb5gaPb7arVak71Pp1O9Xo9EAhYLBa5XA6jA8iy2SwQX5+joHV489zxM1eyNjudToeEo1AoMCBACVUgNGfDJAjdze3Jh6ux3W6JzvvQ3QwGg2KxmEgkMplMo9HYbDbi/49/5fgAKsaDdCzdbP0AAAAASUVORK5CYII=">
+
+
+8) Recursos Lazy y/o bajo demanda
+
+	Lazy
+
+		<img src="<%=createImageLink('/images/item1.jpg')%>" width="90" height="90"><br>
+
+		-->
+
+		<img class="lazy" src="<%=createImageLink('/images/loading.jpg')%>" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="90" height="90"><br>
+
+	Bajo Demanda (scroll)
+
+		<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+
+		-->
+
+		<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+
 
 9) Sprite
 
@@ -99,6 +121,9 @@ El mejor request es el que nunca se dispara
 
 	  <img width="900" height="2800" src="<%=createImageLink(convertWebP('/images/big-image-optimized.jpg'))%>" >
 
+11) Jpg progresivo
+
+	TODO:
 
 12) Javascript
 
@@ -106,7 +131,28 @@ El mejor request es el que nunca se dispara
 
  - Lo ejecutamos asyncronicamente, pero lo tenemos que unificar
 
+ 	<script>
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = '<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>'
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+	</script>
+
  - Lo cargarmos onload
+
+	<script>
+		/* src.js 0B 0.1.4 - 14/10/2011 - Little tiny loader for javascript sources. */(function(a){window.src={js:function(o,h){if(typeof o==="string"){o=[o]}var j,k,m,l,f,g,d;j=a.getElementsByTagName("script")[0];k={t:o.length,i:0};k.r=function(){return k.t===k.i};m=function(){k.i+=1;if(h&&k.r()){h()}};l=(function(){if(j.readyState){return function(b){b.onreadystatechange=function(){if(b.readyState==="loaded"||b.readyState==="complete"){b.onreadystatechange=null;m()}}}}else{return function(b){b.onload=function(){m()}}}}());f=0;g=a.createElement("script");for(f;f<k.t;f+=1){d=g.cloneNode(true);l(d);d.src=o[f];j.parentNode.insertBefore(d,j)}}}}(document));
+	</script>
+	<!-- End SRC Library -->
+	
+	<script>
+		window.onload = (function(){
+			src.js(['<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>'], function() {
+				src.js(['<%=createStaticLink('/javascripts/app.js')%>']);
+			});
+		});
+	</script>
 
  - Si queremos compartir cache tenemos que dividirlo por lo tanto 
 
@@ -117,20 +163,30 @@ El mejor request es el que nunca se dispara
  	-> jcors-loader
 
 
-12) Iteration javascpt
+ 		<script>
+	  (function(e){function l(){for(var b=!0,a,c=h,d=f.length;c<d&&b;)if(a=f[c],void 0!==a&&null!==a){if("string"===typeof a){var g=m.cloneNode(!1);g.text=a;i.parentNode.insertBefore(g,i)}else a.apply(e);h=c+1;f[c]=null;c+=1}else b=!1}function g(){if(f.length){var b=f.pop(),a;"string"===typeof b?(a=m.cloneNode(!0),a.type="text/javascript",a.async=!0,a.src=b,a.onload=a.onreadystatechange=function(){if(!a.readyState||/loaded|complete/.test(a.readyState))a.onload=a.onreadystatechange=null,a=void 0,g()},i.parentNode.insertBefore(a,
+i)):(b.apply(e),g())}}function p(b,a){return function(){f[a]=b.responseText;l();b=void 0}}function q(){var b=arguments.length,a,c;for(a=0;a<b;a+=1)"string"===typeof arguments[a]?(c=j(arguments[a]),c.onload=p(c,a+h),c.send()):(f[a+h]=arguments[a],l())}function r(){f=Array.prototype.slice.call(arguments,0).reverse();g()}var n=e.document,m=n.createElement("script"),i=n.getElementsByTagName("script")[0],f=[],h=0,j,d,k;e.XMLHttpRequest&&(d=new e.XMLHttpRequest,"withCredentials"in d?k=function(b){d=new e.XMLHttpRequest;
+d.open("get",b,!0);return d}:e.XDomainRequest&&(k=function(b){d=new e.XDomainRequest;d.open("get",b);return d}));j=k;e.JcorsLoader={load:j?q:r}})(window);
+	  </script>
 
-function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+
+	  <script>
+
+	  JcorsLoader.load(
+        '<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>', 
+        '<%=createStaticLink('/javascripts/jquery.lazyload.js')%>',
+        '<%=createStaticLink('/javascripts/app.js')%>'
+        );
+
+	  </script>
 
 
 14) Javascript de terceros
 
+
 Facebook SDK (Like bottom)
 
-		 <script>
+	<script>
 	(function() {
 	  var url = '//connect.facebook.net/en_US/all.js';
 	  var iframe = document.createElement('iframe');
@@ -187,21 +243,13 @@ Mejora progresiva
 	- Buscador, popup, modales, carruseles
 
 
-17 ) Trakeos de ML
+18 ) Trakeos de ML
 
 Estaremos migrando las dejavu 1 y dejavu 2 ya esta funcionado sin bloquear.
 
 Google Analytics
 
 Estamos trabajando en esto  !!!
-
-
-
-
-
-7) Agregar dominio extra para aumentar descargas en paralelo de imagenes
-<img src="images1.myapp.com/images/music-icon-optimized.png" />
-<img src="images2.myapp.com/images/music-icon-optimized.png" />
 
 8) Sprites, GIF x PNG8, Icon Fonts
 
@@ -218,6 +266,16 @@ IMAGENES
 PAGINA COMPLETA
 
 12) Imagen grande, agregar jsp progressive o webp
+
+
+a) Progressive render
+Agregar js y css inline en el ejemplo
+quitar style=""
+quitar js en eventos onclick onfocus
+
+quitar inline, agregar al unificado, el js que no se puede ponerlo después del onload
+
+b) stylesheets on top , javascript to the bottom
 
 
 
