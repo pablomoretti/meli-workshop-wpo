@@ -37,7 +37,7 @@ function enviromentHost(url){
     if(false){
       return url;
     }else{
-      return url.replace('dev-','');
+      return url.replace('dev-','').replace(':3000','');
     }
 }
 
