@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 
 
 //enviroment
-var isDev = (!process.env.DYNO != null);
+var isDev = ('development' == app.get('env'));
 
 
 String.prototype.hashCode = function(){
