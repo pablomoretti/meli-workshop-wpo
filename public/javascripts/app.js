@@ -11,6 +11,7 @@ var locaJqueryWindow = $(window);
 		$("img.lazy").each(function changeSouce(){
 			obj=$(this);
 	  		obj.attr("src",obj.attr("data-src-original"));
+	  		obj.fadeIn();
 	  	});
 	}
 
@@ -33,6 +34,7 @@ var locaJqueryWindow = $(window);
 		$("img.scroll").each(function changeSouce(){
 			obj=$(this);
   			obj.attr("src",obj.attr("data-src-original"));
+  			obj.fadeIn();
  		 });
 	}
 

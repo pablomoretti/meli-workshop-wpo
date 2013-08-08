@@ -5,60 +5,84 @@
 <!--[if IE 9]>    <html class="no-js lt-ie10 ie9" lang="es"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
 <head>
-    <title><%= title %></title>
+	<title><%= title %></title>
 
-    <!-- //3// -->
+	<!-- //3// -->
 
- 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.2.css')%>'/>
- 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
-    <link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
-
-
-    <script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
-    <script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
-    <script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
 
 
+	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
 
-
-  
-
-  </head>
-  <body>
-	  <h1><%= title %></h1>
-
-
-
-	  <a href="/page"> Next Page </a> <br><br>
-
-	  <!-- //6// --> <!-- //7// -->
-	  <img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
-
-	  <img src="<%=createImageLink('/images/item1.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item2.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item3.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item4.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item5.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item6.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item7.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item8.jpg')%>" width="90" height="90"><br>
+</head>
+<body>
 	  
-	  <!-- //8//A -->
+	<header>
+		<h1><%= title %></h1>
+	</header>
 
-	  <img src="<%=createImageLink('/images/item9.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item10.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item11.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item12.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item13.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item14.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item15.jpg')%>" width="90" height="90"><br>
-	  <img src="<%=createImageLink('/images/item16.jpg')%>" width="90" height="90"><br>
+	<div class="wraperBody">
+		<a href="/page"> Next Page </a> <br><br>
+		<section id="definicion">
+			<h1 class="definicion">Imágenes</h1>
 
-	  <!-- //8//B -->
-	  <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+			<!-- //6// --> <!-- //7// -->
+			<h2>Optimización mejorando la compresión.</h2>
+			<article class="imageWrapper">
+	  			<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
+			</article>
 
-	 
-	
+			<!-- //8//A -->
+			<h2>Recursos lazy load.</h2>
+			<article class="imageWrapper">
+				<ul class="items-list">
+					<!-- <li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
+					
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
+				</ul>
+			</article>
 
+			<!-- //8//B -->
+			<h2>Recursos bajo demanda.</h2>
+			<article class="imageWrapper">
+	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+			</article>
+		</section>
+	</div>  
+	  
   </body>
 </html>

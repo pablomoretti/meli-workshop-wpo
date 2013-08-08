@@ -1,0 +1,93 @@
+/**
+ * Santi
+ */
+
+Buscar //X//
+
+1) Activar GZIP
+
+app.use(express.compress());
+
+2) Agregar cache a recursos estaticos
+
+app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
+	res.set('Cache-Control', 'max-age=3000000');
+    next();
+});
+
+3) Unificar y minimizar archivos estaticos
+
+	Unificar & minimizar
+
+ 		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
+    	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
+
+	    -->
+
+		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local-app.css')%>' />
+
+	Minimizar
+
+ 		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
+
+		 -->
+
+		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-min-0.13.4.css')%>'/>
+
+
+	Minimizar
+
+	    <script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+
+		 -->
+
+		<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
+
+
+	Unificar & minimizar
+
+		<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+    	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+
+	    -->
+
+    	<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
+
+
+4) Dominios sin cookies para estaticos
+
+	var staticHost = 'http://dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'');
+
+	-->
+
+	var staticHost = 'http://dev-wpo-static.zapto.org' + ((isDev)?':3000':'');
+
+
+5) Multiples dominios para paralelizar descargas
+
+	var imagesHost = [
+	  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'')),
+	  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':''))
+	  ];
+
+  	-->
+
+	var imagesHost = [
+	  ('http://' + 'dev-meli-wpo1.zapto.org' + ((isDev)?':3000':'')),
+	  ('http://' + 'dev-meli-wpo2.zapto.org' + ((isDev)?':3000':''))
+	  ];
+
+11) Agregar segunda pagina, prefetch de componentes
+DNS
+IMAGENES
+PAGINA COMPLETA
+
+
+16 ) Precache
+
+Estandar DNS
+
+    <link rel="dns-prefetch" href="//www.domain2.com">
+
+
+

@@ -1,129 +1,9 @@
+/**
+ * Pablo
+ */
 
 Buscar //X//
 
-1) Activar GZIP
-
-app.use(express.compress());
-
-2) Agregar cache a recursos estaticos
-
-app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
-	res.set('Cache-Control', 'max-age=3000000');
-    next();
-});
-
-3) Unificar y minimizar archivos estaticos
-
-	Unificar & minimizar
-
- 		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
-    	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
-
-	    -->
-
-		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local-app.css')%>' />
-
-	Minimizar
-
- 		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.2.css')%>'/>
-
-		 -->
-
-		<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-min-0.13.2.css')%>'/>
-
-
-	Minimizar
-
-	    <script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
-
-		 -->
-
-		<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
-
-
-	Unificar & minimizar
-
-		<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
-    	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
-
-	    -->
-
-    	<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
-
-
-4) Dominios sin cookies para estaticos
-
-	var staticHost = 'http://dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'');
-
-	-->
-
-	var staticHost = 'http://dev-wpo-static.zapto.org' + ((isDev)?':3000':'');
-
-
-5) Multiples dominios para paralelizar descargas
-
-	var imagesHost = [
-	  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'')),
-	  ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':''))
-	  ];
-
-  	-->
-
-	var imagesHost = [
-	  ('http://' + 'dev-meli-wpo1.zapto.org' + ((isDev)?':3000':'')),
-	  ('http://' + 'dev-meli-wpo2.zapto.org' + ((isDev)?':3000':''))
-	  ];
-
-6) Optimizar imagenes
-
-	<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
-
-	-->
-
-	<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
-
-
-7) data: base64
-
-	<img src="<%=createImageLink('/images/music-icon-optimized.png')%>" /> <br>
-
-	-->
-
-	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAlCAIAAABZK/egAAAB3ElEQVRYw+3Yv6tBURwA8BMG8qMUkUEpyiKzxchksEi3KGXwB4jBJAYLysqgFKNBLBZFFn8AFowkMtAdkPetV6/3/LjX5Z5z3+vd7/zt9Ol8z7nn+73o8jsCiQ6yjtVqJZjjfD73+/14PG6z2RBCTqdzv9+TcxwOh2azGYlE9Ho9+hm1Wg27Y7lcVioVn8+nUCjQgyiVSrgc4/E4l8u5XC6JRILYgn8HbH4qlfos/PPBvyMcDiPuwb+D607gclitVtHB3SGVSt1udz6fN5lMAjiUSqXf769Wq+v1+ns+IYfBYIhGo61Wi6bpu/l4HXa7PZlMDodDeFCY83E5gsHgdDp9Ph+Xg3XdP+qgxf3A5xiNRvAUezweh8MB7Ug6nW6322azmZxjt9tRFCXAd/1q3VgsJsz7crWu0WhkdpTL5bccx+NxMpn0er35fM7gYC6KTCaDHvbFezubzUKhkFar/VpOp9N5vV6NRnPrWCwW0KjeRahUKnj22Hb5gaPb7arVak71Pp1O9Xo9EAhYLBa5XA6jA8iy2SwQX5+joHV489zxM1eyNjudToeEo1AoMCBACVUgNGfDJAjdze3Jh6ux3W6JzvvQ3QwGg2KxmEgkMplMo9HYbDbi/49/5fgAKsaDdCzdbP0AAAAASUVORK5CYII=">
-
-
-8) Recursos Lazy y/o bajo demanda
-
-	Lazy
-
-		<img src="<%=createImageLink('/images/item1.jpg')%>" width="90" height="90"><br>
-
-		-->
-
-		<img class="lazy" src="<%=createImageLink('/images/loading.jpg')%>" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="90" height="90"><br>
-
-	Bajo Demanda (scroll)
-
-		<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
-
-		-->
-
-		<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
-
-
-9) Sprite
-
-	TODO:
-
-10) WebP
-
-	  <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
-
-	  <img width="900" height="2800" src="<%=createImageLink(convertWebP('/images/big-image-optimized.jpg'))%>" >
-
-11) Jpg progresivo
-
-	TODO:
 
 12) Javascript
 
@@ -231,15 +111,9 @@ Facebook SDK (Like bottom)
 	  </script>
 
 
-16 ) Precache
 
-Estandar DNS
 
-    <link rel="dns-prefetch" href="//www.domain2.com">
-
-17)
-
-Mejora progresiva
+17) Mejora progresiva
 	- Buscador, popup, modales, carruseles
 
 
@@ -251,34 +125,9 @@ Google Analytics
 
 Estamos trabajando en esto  !!!
 
-8) Sprites, GIF x PNG8, Icon Fonts
-
 
 9) Escenario con pixeles de trackeo
 Corregir el loading para no blockear descargas, render y onload
 
 10) Js que dibuje cosas ( agregar elementos, rows ) con problemas de repaint/relayout
 Fix de eso
-
-11) Agregar segunda pagina, prefetch de componentes
-DNS
-IMAGENES
-PAGINA COMPLETA
-
-12) Imagen grande, agregar jsp progressive o webp
-
-
-a) Progressive render
-Agregar js y css inline en el ejemplo
-quitar style=""
-quitar js en eventos onclick onfocus
-
-quitar inline, agregar al unificado, el js que no se puede ponerlo después del onload
-
-b) stylesheets on top , javascript to the bottom
-
-
-
-
-
-

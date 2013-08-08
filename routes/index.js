@@ -6,7 +6,7 @@
 exports.index = function(req, res){
 
 	var model = {
-		'title' : 'HOME',
+		'title' : 'Site Speed',
 		'req'	: req
 	};
 

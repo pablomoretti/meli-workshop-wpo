@@ -1,11 +1,222 @@
 /*!
- * Chico UI v0.13.2
+ * Chico UI v0.13.4
  * http://chico-ui.com.ar/
  *
  * Copyright (c) 2013, MercadoLibre.com
  * Released under the MIT license.
  * http://chico-ui.com.ar/license
  */
+
+/**
+ * Reset
+ * @based: Eric Meyer
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+abbr, article, aside, audio, bb, canvas, datagrid,
+datalist, details, dialog, eventsource, figure, footer,
+header, hgroup, mark, menu, meter, nav, output,
+progress, section, time, video {
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+
+}
+
+ol, ul, menu {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles!*/
+/*:focus {
+	outline: 0;
+}*/
+
+/* remember to highlight inserts somehow!*/
+ins {
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**
+ * Base
+ */
+
+/*
+ * 1. Sets default font family to sans-serif.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+	font-family: sans-serif; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+	-ms-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+	font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+	padding: 0 10px; /* Prevent layout "sticking" to the edge of the browser */
+	background-color: #FFF;
+	color: #333;
+	margin: 0 auto;
+}
+
+/**
+ * Misc
+ */
+hr {
+	border: none;
+	border-bottom: 1px dashed #CCC;
+}
+
+a img {
+	border: none;
+}
+
+p + p {
+	margin-top: 1em;
+}
+
+/**
+ * Reset
+ */
+body {
+	font-size: 13px;
+	line-height: 20px;
+	max-width: 1200px;
+	min-width: 760px;
+}
+
+/* IE */
+.lt-ie8 hr {
+	height: 0;
+}
+
+/**
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	margin: 10px 0;
+}
+
+h1 {
+	font-size: 22px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 15px;
+}
+
+h6 {
+	font-size: 14px;
+}
+
+/**
+ * Box Headings
+ */
+[class*="ch-box"] h1,
+[class*="ch-box"] h2,
+[class*="ch-box"] h3,
+[class*="ch-box"] h4,
+[class*="ch-box"] h5,
+[class*="ch-box"] h6 {
+	margin-top: 0;
+}
+
+/**
+ * Links
+ */
+a {
+	color: #0637B3;
+	text-decoration: none;
+}
+
+a:active {
+	color: #0000DD;
+}
+
+a:visited {
+	color: #800080;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+
+/**
+ * Price
+ */
+.ch-price {
+	color: #900;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.ch-price sup {
+	font-size: 10px;
+	vertical-align: text-top;
+	line-height: 1em;
+}
+
+.ch-price span {
+	color: #999;
+	font-size: 13px;
+	font-weight: normal
+}
+
+/* IE */
+.lt-ie9 .ch-price sup {
+	font-size: 12px;
+}
 
 /* IMPORTANT: .ch-hide class allows components to be shown and hidden */
 .ch-hide {
@@ -138,11 +349,11 @@
  */
 @font-face {
 	font-family: 'icons';
-	src: url('../assets/icons.eot');
-	src: url('../assets/icons.eot?#iefix') format('embedded-opentype'),
-		 url('../assets/icons.woff') format('woff'),
-		 url('../assets/icons.ttf') format('truetype'),
-		 url('../assets/icons.svg#icons') format('svg');
+	src: url('../../assets/0.3/icons.eot');
+	src: url('../../assets/0.3/icons.eot?#iefix') format('embedded-opentype'),
+		 url('../../assets/0.3/icons.woff') format('woff'),
+		 url('../../assets/0.3/icons.ttf') format('truetype'),
+		 url('../../assets/0.3/icons.svg#icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -255,6 +466,7 @@
 .ch-icon-undo:before                 { content: '\f0e2'; }
 .ch-icon-comment-alt:before          { content: '\f0e5'; }
 .ch-icon-comments-alt:before         { content: '\f0e6'; }
+.ch-icon-phone:before                { content: '\f095'; }
 
 .lt-ie8 .ch-icon-search { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf002;&nbsp;');}
 .lt-ie8 .ch-icon-heart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf004;&nbsp;');}
@@ -321,6 +533,7 @@
 .lt-ie8 .ch-icon-undo { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0e2;&nbsp;');}
 .lt-ie8 .ch-icon-comment-alt { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0e5;&nbsp;');}
 .lt-ie8 .ch-icon-comments-alt:before { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0e6;&nbsp;');}
+.lt-ie8 .ch-icon-phone:before { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf095;&nbsp;');}
 
 /**
  * Boxes
@@ -440,7 +653,7 @@
 .lt-ie8 .ch-box-information,
 .lt-ie8 .ch-box-ok {
 	position: static;
-	background-image: url('../assets/icons.png');
+	background-image: url('../../assets/0.3/icons.png');
 	background-repeat: no-repeat;
 }
 
@@ -474,19 +687,19 @@
 }
 
 .ch-loading-big {
-	background-image: url('../assets/loading-big.gif');
+	background-image: url('../../assets/0.3/loading-big.gif');
 	width: 36px;
 	height: 36px;
 }
 
 .ch-loading {
-	background-image: url('../assets/loading.gif');
+	background-image: url('../../assets/0.3/loading.gif');
 	width: 24px;
 	height: 24px;
 }
 
 .ch-loading-small {
-	background-image: url('../assets/loading-small.gif');
+	background-image: url('../../assets/0.3/loading-small.gif');
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -950,11 +1163,11 @@ table {
 }
 
 .lt-ie8 .ch-datagrid th.ch-datagrid-selected .ch-datagrid-asc {
-	background: transparent url("../assets/shapes.png") 0 -51px no-repeat;
+	background: transparent url("../../assets/0.3/shapes.png") 0 -51px no-repeat;
 }
 
 .lt-ie8 .ch-datagrid th.ch-datagrid-selected .ch-datagrid-desc {
-	background: transparent url("../assets/shapes.png") 0 -48px no-repeat;
+	background: transparent url("../../assets/0.3/shapes.png") 0 -48px no-repeat;
 }
 
 .ie7 .ch-datagrid-controls th {
@@ -1315,7 +1528,7 @@ dl.ch-list dd {
 
 .lt-ie8 .ch-calendar-prev span,
 .lt-ie8 .ch-calendar-next span {
-	background-image: url("../assets/shapes.png");
+	background-image: url("../../assets/0.3/shapes.png");
 	overflow: hidden;
 	display: block;
 	width: 4px;
@@ -1378,7 +1591,7 @@ dl.ch-list dd {
 }
 
 .ch-carousel-loading {
-	background: transparent url('../assets/loading_small.gif') center center no-repeat;
+	background: transparent url('../../assets/0.3/loading_small.gif') center center no-repeat;
 }
 
 .ch-carousel-prev,
@@ -1426,7 +1639,7 @@ dl.ch-list dd {
 
 .lt-ie8 .ch-carousel-prev span,
 .lt-ie8 .ch-carousel-next span {
-	background-image: url('../assets/shapes.png');
+	background-image: url('../../assets/0.3/shapes.png');
 	display: block;
 	height: 18px;
 	margin: 30px 20px;
@@ -1648,7 +1861,7 @@ dl.ch-list dd {
 
 /* IE */
 .ch-autoComplete-loading {
-	background: url('../assets/loading-small.gif') no-repeat right center;
+	background: url('../../assets/0.3/loading-small.gif') no-repeat right center;
 	background-size: 16px;
 
 }
@@ -1789,7 +2002,7 @@ dl.ch-list dd {
 }
 
 .lt-ie8 .ch-datePicker-cone {
-	background-image: url("../assets/shapes.png");
+	background-image: url("../../assets/0.3/shapes.png");
 	display: block;
 	position: absolute;
 	width: 16px;
@@ -1896,19 +2109,6 @@ dl.ch-list dd {
 	line-height: 1.2em;
 }
 
-/* Content */
-.ch-dropdown-content {
-	background-color: #FFFFFF;
-	min-width: 120px;
-	overflow: auto;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	white-space: nowrap;
-	-webkit-box-shadow: 2px 2px 2px rgba(100, 100, 100, .1);
-	box-shadow: 2px 2px 2px rgba(100, 100, 100, .1);
-}
-
 .ch-dropdown-content-hide {
 	display: none;
 }
@@ -1942,8 +2142,27 @@ dl.ch-list dd {
 
 /* Content */
 .ch-dropdown-content {
+	background-color: #FFFFFF;
+	min-width: 120px;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	white-space: nowrap;
+	-webkit-box-shadow: 2px 2px 2px rgba(100, 100, 100, .1);
+	box-shadow: 2px 2px 2px rgba(100, 100, 100, .1);
 	border: 1px solid #C8C8C8;
 	border-radius: 0 5px 5px 5px;
+}
+
+.ch-dropdown .ch-dropdown-content.ch-points-lblt {
+	-webkit-border-radius: 5px 5px 5px 0px; /* Android 2.1 */
+	border-radius: 5px 5px 5px 0px;
+}
+
+.ch-dropdown .ch-dropdown-content.ch-points-ltlb {
+	-webkit-border-radius: 0px 5px 5px 5px; /* Android 2.1 */
+	border-radius: 0px 5px 5px 5px;
 }
 
 /* List of links */
@@ -2063,7 +2282,7 @@ dl.ch-list dd {
 }
 
 .lt-ie8 .ch-dropdown-trigger .ch-dropdown-ico {
-	background: transparent url('../assets/shapes.png') 0 -51px no-repeat;
+	background: transparent url('../../assets/0.3/shapes.png') 0 -51px no-repeat;
 	display: block;
 	height: 4px;
 	position: absolute;
@@ -2130,7 +2349,7 @@ dl.ch-list dd {
 
 /* Trigger icon */
 .lt-ie8 .ch-expandable-trigger .ch-expandable-ico {
-	background-image: url('../assets/shapes.png');
+	background-image: url('../../assets/0.3/shapes.png');
 	display: block;
 	position: absolute;
 	overflow: hidden;
@@ -2682,7 +2901,7 @@ input[readonly]:focus {
 
 /* IE 7 */
 .lt-ie8 .ch-layer-cone {
-	background-image: url('../assets/shapes.png');
+	background-image: url('../../assets/0.3/shapes.png');
 	display: block;
 	position: absolute;
 	width: 16px;
@@ -3137,7 +3356,7 @@ input[readonly]:focus {
  * IE7
  */
 .lt-ie8 .ch-tooltip-cone {
-	background-image: url('../assets/shapes.png');
+	background-image: url('../../assets/0.3/shapes.png');
 	display: block;
 	position: absolute;
 	width: 16px;
@@ -3315,7 +3534,7 @@ form .ch-form-error:focus {
 
 /* IE 7 */
 .lt-ie8 .ch-validation-cone {
-	background-image: url('../assets/shapes.png');
+	background-image: url('../../assets/0.3/shapes.png');
 	display: block;
 	position: absolute;
 	width: 16px;
