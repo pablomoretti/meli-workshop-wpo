@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 
 
 //enviroment
-var isDev = ('development' == app.get('env'));
+var isDev = (!process.env.DYNO != null);
 
 
 String.prototype.hashCode = function(){
@@ -34,7 +34,7 @@ String.prototype.hashCode = function(){
 }
 
 function enviromentHost(url){
-    if(isDev){
+    if(false){
       return url;
     }else{
       return url.replace('dev-','');
@@ -75,6 +75,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // development only
