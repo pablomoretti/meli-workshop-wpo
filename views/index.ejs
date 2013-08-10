@@ -38,11 +38,11 @@
 	<div class="wraperBody">
 		<section class="performance-pannel">
 			<h4>Time to first byte</h4>
-			<p>0.867ms</p>
+			<p id="timerTtfb">0.867ms</p>
 			<h4>DOMContentLoaded</h4>
-			<p>1.23ms</p>
+			<p id="timerDomLoaded">1.23ms</p>
 			<h4>Onload</h4>
-			<p>4.867ms</p>
+			<p id="timerOnloaded">4.867ms</p>
 		</section>
 		
 		<section id="server">
@@ -80,7 +80,6 @@
 	  				Utilizar múltiples dominios para la descarga de recursos, nos permite <strong>acelerar los tiempos de respuesta</strong> de nuestra aplicación. La utilizaremos principalmente para la descarga de imágenes en paralelo. 
 	  			</p>
 			</article>
-
 		</section>
 
 		<section id="images">
@@ -92,6 +91,39 @@
 				<p>Comprimiendo nuestros PNG24 podemos reducir el peso en un 80% </p>
 	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
 	  			<!-- <img src="<%=createImageLink('/images/products-optimized.png')%>" /> -->
+			</article>
+			<article >
+				<h3 class="definicion">Sprites</h3>
+				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. </p>
+				<ul class="small-image-list">
+					<li><img src="<%=createImageLink('/images/rocket.png')%>" width="36" height="36"></li>
+					<li><img src="<%=createImageLink('/images/spriteIm1.png')%>" width="36" height="36"></li>
+					<li><img src="<%=createImageLink('/images/spriteIm2.png')%>" width="36" height="36"></li>
+					<li><img src="<%=createImageLink('/images/spriteIm3.png')%>" width="36" height="36"></li>
+				</ul>
+			</article>
+			<article>
+				<h3 class="definicion">Data:Uri</h3>
+				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra múltiples request a imágenes.</p>
+				<div class="rockets-data-uri"></div>		
+			</article>
+			<article>
+				<h3 class="definicion">Icon Fonts</h3>
+				<p>Imágenes vectoriales embebidas en fuentes, que nos permiten cambiarle el color, tamaño, estilos y aplicarle efectos. Reducimos la cantidad de request y podemos utiliarlas en distintinas densidades de pantalla.</p>
+			</article>
+			<article>
+				<ul class="small-image-list" >
+					<li><i class="icon-rocket">&nbsp;Defualt</i></li>
+					<li><i class="icon-rocket icon-2x"></i>&nbsp;2X size</li>
+					<li><i class="icon-rocket icon-rotate-90">&nbsp;Rotate 90</i></li>
+					<li><i class="icon-rocket icon-flip-horizontal">&nbsp;Flips</i></li>
+					<li>
+						<span class="icon-stack">
+						  <i class="icon-rocket"></i>
+						  <i class="icon-ban-circle icon-stack-base"></i>
+						</span>&nbsp;Icon Stack
+					</li>
+				</ul>
 			</article>
 			<article class="imageWrapper">
 				<h3>Progressive JPEG</h3>
@@ -191,43 +223,127 @@
 	  			<!-- <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" > -->
 	  			<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 			</article>
-
-
-		</section>
-		<section id="sprites">
-			<h2 class="definicion">Sprites</h2>
-			<ul class="sprite-list">
-				<li><img src="<%=createImageLink('/images/rocket.png')%>" width="36" height="36"></li>
-				<li><img src="<%=createImageLink('/images/spriteIm1.png')%>" width="36" height="36"></li>
-				<li><img src="<%=createImageLink('/images/spriteIm2.png')%>" width="36" height="36"></li>
-				<li><img src="<%=createImageLink('/images/spriteIm3.png')%>" width="36" height="36"></li>
-			</ul>
-		</section>
-		<section id="iconfonts">
-			<h2 class="definicion">Icon Fonts</h2>		
-			<ul>
-				<li><i class="icon-rocket">&nbsp;Defualt</i></li>
-				<li><i class="icon-rocket icon-2x"></i>&nbsp;2X size</li>
-				<li><i class="icon-rocket icon-rotate-90">&nbsp;Rotate 90</i></li>
-				<li><i class="icon-rocket icon-flip-horizontal">&nbsp;Flips</i></li>
-				<li>
-					<span class="icon-stack">
-					  <i class="icon-rocket"></i>
-					  <i class="icon-ban-circle icon-stack-base"></i>
-					</span>&nbsp;Icon Stack
-				</li>
-  
-			</ul>			
-		</section>
-		<section id="datauri">
-			<h2 class="definicion">Data:Uri</h2>
-			<div class="rockets-data-uri"></div>		
 		</section>
 		<section id="javascript">
 			<h2 class="definicion">Javascript</h2>
+			<article>
+				<h3>Al final del body</h3>
+				<p>El javascript blquea el render, y una forma de evitarlo es moviendo los llamados al final del body.</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+		&lt;script&nbsp;src=&quot;chico-jquery.js&quot;&gt;&lt;/script&gt;
+		&lt;script&nbsp;src=&quot;my-app.js&quot;&gt;&lt;/script&gt;
+
+	&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+			</article>
+			<article>
+				<h3>Ejecución asincrónica</h3>
+				<p>Cargando el javascript asincrónicamente, podemos tener un mejor control de los llamados.</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+&lt;script&gt;
+	(function()&nbsp;{
+		var&nbsp;ga&nbsp;=&nbsp;document.createElement('script');
+		&nbsp;&nbsp;&nbsp;&nbsp;ga.type&nbsp;=&nbsp;'text/javascript';
+		&nbsp;&nbsp;&nbsp;&nbsp;ga.async&nbsp;=&nbsp;true;
+		&nbsp;&nbsp;&nbsp;&nbsp;ga.src&nbsp;=&nbsp;'jquery-1.10.2.js';
+		var&nbsp;s&nbsp;=&nbsp;document.getElementsByTagName('script')[0];
+		&nbsp;&nbsp;&nbsp;&nbsp;s.parentNode.insertBefore(ga,&nbsp;s);
+	})();
+&lt;/script&gt;</pre>
+			</article>
+			<article>
+				<h3>Ejecución onload</h3>
+				<p>Cargando el javscript en el onload y usando callbacks para las dependendencias.</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+&lt;script&gt;
+	/*&nbsp;src.js&nbsp;0B&nbsp;0.1.4&nbsp;-&nbsp;14/10/2011&nbsp;-&nbsp;Little&nbsp;tiny&nbsp;loader&nbsp;for&nbsp;javascript&nbsp;sources.&nbsp;*/(function(a){window.src={js:function(o,h){if(typeof&nbsp;o===&quot;string&quot;){o=[o]}var&nbsp;j,k,m,l,f,g,d;j=a.getElementsByTagName(&quot;script&quot;)[0];k={t:o.length,i:0};k.r=function(){return&nbsp;k.t===k.i};m=function(){k.i+=1;if(h&amp;&amp;k.r()){h()}};l=(function(){if(j.readyState){return&nbsp;function(b){b.onreadystatechange=function(){if(b.readyState===&quot;loaded&quot;||b.readyState===&quot;complete&quot;){b.onreadystatechange=null;m()}}}}else{return&nbsp;function(b){b.onload=function(){m()}}}}());f=0;g=a.createElement(&quot;script&quot;);for(f;f&lt;k.t;f+=1){d=g.cloneNode(true);l(d);d.src=o[f];j.parentNode.insertBefore(d,j)}}}}(document));
+&lt;/script&gt;
+	
+&lt;script&gt;
+	window.onload&nbsp;=&nbsp;(function(){
+		src.js(['jquery-1.10.2.js'],&nbsp;function()&nbsp;{
+			src.js(['app.js']);
+		});
+	});
+&lt;/script&gt;</pre>
+			</article>
+			<article>
+				<h3>Librerias</h3>
+				<p>Si queremos compartir cache podemos usar algunas librerias como <a href="https://github.com/pablomoretti/jcors-loader">jcors-loader</a>, <a href="http://labjs.com/">LABSjs</a>, <a href="http://yepnopejs.com/">yepnope.js</a>.</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+&lt;script&gt;
+	&lt;!-- jcors-loader --&gt;
+	(function(e){function&nbsp;l(){for(var&nbsp;b=!0,a,c=h,d=f.length;c&lt;d&amp;&amp;b;)if(a=f[c],void&nbsp;0!==a&amp;&amp;null!==a){if(&quot;string&quot;===typeof&nbsp;a){var&nbsp;g=m.cloneNode(!1);g.text=a;i.parentNode.insertBefore(g,i)}else&nbsp;a.apply(e);h=c+1;f[c]=null;c+=1}else&nbsp;b=!1}function&nbsp;g(){if(f.length){var&nbsp;b=f.pop(),a;&quot;string&quot;===typeof&nbsp;b?(a=m.cloneNode(!0),a.type=&quot;text/javascript&quot;,a.async=!0,a.src=b,a.onload=a.onreadystatechange=function(){if(!a.readyState||/loaded|complete/.test(a.readyState))a.onload=a.onreadystatechange=null,a=void&nbsp;0,g()},i.parentNode.insertBefore(a,i)):(b.apply(e),g())}}function&nbsp;p(b,a){return&nbsp;function(){f[a]=b.responseText;l();b=void&nbsp;0}}function&nbsp;q(){var&nbsp;b=arguments.length,a,c;for(a=0;a&lt;b;a+=1)&quot;string&quot;===typeof&nbsp;arguments[a]?(c=j(arguments[a]),c.onload=p(c,a+h),c.send()):(f[a+h]=arguments[a],l())}function&nbsp;r(){f=Array.prototype.slice.call(arguments,0).reverse();g()}var&nbsp;n=e.document,m=n.createElement(&quot;script&quot;),i=n.getElementsByTagName(&quot;script&quot;)[0],f=[],h=0,j,d,k;e.XMLHttpRequest&amp;&amp;(d=new&nbsp;e.XMLHttpRequest,&quot;withCredentials&quot;in&nbsp;d?k=function(b){d=new&nbsp;e.XMLHttpRequest;d.open(&quot;get&quot;,b,!0);return&nbsp;d}:e.XDomainRequest&amp;&amp;(k=function(b){d=new&nbsp;e.XDomainRequest;d.open(&quot;get&quot;,b);return&nbsp;d}));j=k;e.JcorsLoader={load:j?q:r}})(window);
+&lt;/script&gt;
+&lt;script&gt;
+	&nbsp;&nbsp;JcorsLoader.load(
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'jquery-1.10.2.js',&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'jquery.lazyload.js',
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'app.js'
+	&nbsp;&nbsp;);
+&lt;/script&gt;</pre>
+			</article>
+			<article>
+				<h3>Javscript de terceros</h3>
+				<p>Facebook SDK (Like bottom).</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+&lt;script&gt;
+	(function()&nbsp;{
+		var&nbsp;url&nbsp;=&nbsp;'//connect.facebook.net/en_US/all.js';
+		var&nbsp;iframe&nbsp;=&nbsp;document.createElement('iframe');
+			(iframe.frameElement&nbsp;||&nbsp;iframe).style.cssText&nbsp;=&nbsp;&quot;width:&nbsp;0;&nbsp;height:&nbsp;0;&nbsp;border:&nbsp;0&quot;;
+			iframe.src&nbsp;=&nbsp;&quot;javascript:false&quot;;
+			document.getElementById('fb-root').appendChild(iframe);
+		var&nbsp;doc&nbsp;=&nbsp;iframe.contentWindow.document;
+			doc.open().write('&lt;body&nbsp;onload=&quot;'+
+				'window.inDapIF&nbsp;=&nbsp;true;'&nbsp;+
+				'var&nbsp;js&nbsp;=&nbsp;document.createElement(\'script\');'+
+				'js.src&nbsp;=&nbsp;\''+&nbsp;url&nbsp;+'\';'+
+				'document.body.appendChild(js);&quot;&gt;');
+			doc.close();
+	}());
+
+	//&nbsp;async&nbsp;init&nbsp;once&nbsp;loading&nbsp;is&nbsp;done
+	window.fbAsyncInit&nbsp;=&nbsp;function()&nbsp;{
+		FB.init({xfbml:&nbsp;true});
+	};
+&lt;/script&gt;</pre>
+			</article>
+			<article>
+				<p>Ads (internos y externos).</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+&lt;script&gt;
+	(function(url)&nbsp;{
+		var&nbsp;iframe&nbsp;=&nbsp;document.createElement('iframe');
+			(iframe.frameElement&nbsp;||&nbsp;iframe).style.cssText&nbsp;=
+			&nbsp;&nbsp;&quot;width:&nbsp;0;&nbsp;height:&nbsp;0;&nbsp;border:&nbsp;0;&nbsp;position:&nbsp;absolute&quot;;
+			iframe.src&nbsp;=&nbsp;&quot;javascript:false&quot;;
+			iframe.id&nbsp;=&nbsp;&quot;ads-init-frame&quot;;
+			var&nbsp;where&nbsp;=&nbsp;document.getElementsByTagName('script')[0];
+			where.parentNode.insertBefore(iframe,&nbsp;where);
+			var&nbsp;doc&nbsp;=&nbsp;iframe.contentWindow.document;
+			doc.open().write('&lt;body&nbsp;onload=&quot;'+
+			&nbsp;	'var&nbsp;js&nbsp;=&nbsp;document.createElement(\'script\');'+
+				'js.src&nbsp;=&nbsp;\''+&nbsp;url&nbsp;+'\';'+
+				'document.body.appendChild(js);&quot;&gt;');
+			doc.close();
+	}(&quot;/static/ads-friendly-iframe.js&quot;));
+&lt;/script&gt;</pre>
+			</article>
 		</section>
 	</div>
-	
-	
   </body>
 </html>
