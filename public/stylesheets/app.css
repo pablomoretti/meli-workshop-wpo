@@ -79,13 +79,12 @@ div.wraperBody {
 	position: relative;
 	top:55px;
 	z-index: 500;
-	padding: 50px 0 0 0;
+	padding: 40px 20px 10px;
 }
 
 article {
-	width: 67%; 
+	width: 74%; 
 	float: left;
-	margin-bottom: 40px;
 }
 
 /* BLOKS */
@@ -128,7 +127,7 @@ section h2 {
 	font-size: 2.6em;
 	font-weight: lighter;
 	letter-spacing: 0.03em;
-	margin: 20px 0 40px;
+	margin: 40px 0 20px;
 }
 /*section h2 {
 	font-size: 1.2em;
@@ -186,10 +185,13 @@ a:visited {
 }
 
 /* Items List */
+.items-list {
+	width: 103%;
+}
 .items-list li {
 	background-color: #f5f5f5;
 	display: inline-block;
-	margin: 0 15px 15px 0;
+	margin: 0 17px 15px 0;
 	width: 200px; height: 200px;
 }
 
@@ -209,6 +211,7 @@ h3{
 	font-size: 1.2em;
 	letter-spacing: 0.03em;
 	color:#666;
+	margin: 40px 0 10px 0;
 }
 
 h4{
@@ -224,7 +227,6 @@ h4{
 section ul{
 	list-style-position:inside;
 	list-style-type: disc;
-	margin-left: 10px;
 	line-height: 24px;
 }
 
@@ -290,7 +292,7 @@ tr {
 	max-height: 300px;
 	background-color: #000;
 	overflow: auto;
-	width: 67%; 
+	width: 73%; 
 	float: left;
 	margin: 10px 0 20px 0;
 }
@@ -396,3 +398,25 @@ a:visited {
 
 }
 
+
+/**
+ *    Performance Pannel
+ */
+
+.performance-pannel {
+	background-color: rgba(0, 0, 0, .7);
+	color: #FFF;
+	height: 275px; width: 240px;
+	padding: 20px 30px;
+	position: fixed;
+	top: 80px; right: 20px;
+	-webkit-transform: translateZ(0);
+}
+.performance-pannel h4 {
+	color: #FFF;
+}
+.performance-pannel p {
+	font-size: 50px;
+	line-height: 1em;
+	margin-bottom: 20px;
+}

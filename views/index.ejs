@@ -18,7 +18,7 @@
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.prettify.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
-
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
 
 </head>
 <body>
@@ -26,14 +26,23 @@
 	<header>
 		<h1><%= title %></h1>
 		<ul>
-			<li class="navSection"><a href="#server">Server</a></li>
+			<!--li class="navSection"><a href="#server">Server</a></li>
 			<li class="navSection"><a href="#images">Imagenes</a></li>
-			<li class="navSection"><a href="#javascript">Javascript</a></li>
+			<li class="navSection"><a href="#javascript">Javascript</a></li-->
 			<!-- <li class="navSection"><a href="#navEjemplos">Ejemplos</a></li> -->
 		</ul>
 	</header>
 
 	<div class="wraperBody">
+
+		<section class="performance-pannel">
+			<h4>Time to first byte</h4>
+			<p>0.867ms</p>
+			<h4>DOMContentLoaded</h4>
+			<p>1.23ms</p>
+			<h4>Onload</h4>
+			<p>4.867ms</p>
+		</section>
 		
 		<section id="server">
 
@@ -78,15 +87,46 @@
 
 			<!-- //6// --> <!-- //7// -->
 			<article class="imageWrapper">
-				<h3>Optimización mejorando la compresión.</h3>
-	  			<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
+				<h3>Optimización PNG</h3>
+				<p>Comprimiendo nuestros PNG24 podemos reducir el peso en un 80% </p>
+	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
+	  			<!-- <img src="<%=createImageLink('/images/products-optimized.png')%>" /> -->
 			</article>
-
-			<!-- //8//A -->
 			<article class="imageWrapper">
-				<h3>Recursos lazy load.</h3>
+				<h3>Progressive JPEG</h3>
+				<p>WIP</p>
+			</article>
+			<article class="imageWrapper">
+				<h3>WEBP</h3>
+				<p>WIP</p>
+			</article>
+			<!-- //8//A -->
+			<article>
+				<h3>Recursos lazy load</h3>
+				<p>Descargamos las imágenes en el document complete.</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+(function&nbsp;imageLazy(window){
+	var&nbsp;isLoadead&nbsp;=&nbsp;(document.readyState&nbsp;===&nbsp;&quot;complete&quot;);
+	function&nbsp;lazyImages(){
+		var&nbsp;obj;
+		$(&quot;img.lazy&quot;).each(function&nbsp;changeSouce(){
+			obj=$(this);
+	&nbsp;&nbsp;		obj.attr(&quot;src&quot;,obj.attr(&quot;data-src-original&quot;));
+	&nbsp;&nbsp;		obj.fadeIn();
+	&nbsp;&nbsp;	});
+	}
+	if&nbsp;(isLoadead)&nbsp;{
+		lazyImages();
+	} else {
+		$(window).load(lazyImages);
+	}
+})(window);</pre>
+			</article>
+			<article class="imageWrapper">
 				<ul class="items-list">
-					<li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<!-- <li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
@@ -101,9 +141,9 @@
 					<li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
 					
-					<!-- <li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
@@ -118,15 +158,44 @@
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
 				</ul>
 			</article>
 
 			<!-- //8//B -->
 			<article class="imageWrapper">
-				<h3>Recursos bajo demanda.</h3>
-	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+				<h3>Recursos bajo demanda</h3>
+				<p>La descarga bajo demanda, evita que se realicen llamados a recursos que el usuario no visualiza. Utilizando los eventos que tenemos disponibles en el objeto window, podemos realizar estos llamados.</p>
+				<p>Usando el evento scroll para descargar una imágen.</p>
 			</article>
+			<article class="code_snippet_container">
+				<pre rel="HTML" class="prettyprint snippet03">
+(function&nbsp;imageOnDemand(window){
+	var&nbsp;isOnTop&nbsp;=&nbsp;$(window).scrollTop()&nbsp;!=&nbsp;0;
+	function&nbsp;onScroll(){
+		var&nbsp;obj;
+		$(&quot;img.scroll&quot;).each(function&nbsp;changeSouce(){
+			obj=$(this);
+&nbsp;&nbsp;			obj.attr(&quot;src&quot;,obj.attr(&quot;data-src-original&quot;));
+&nbsp;&nbsp;			obj.fadeIn();
+&nbsp;		&nbsp;});
+	}
+	if(isOnTop){
+		onScroll();
+	}else{
+		jqueryWindow.one('scroll',&nbsp;onScroll);
+	}
+})(window);</pre>
+			</article>
+	  			<!-- <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" > -->
+	  			<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+			</article>
+
+
+		</section>
+
+		<section id="javascript">
+			<h2 class="definicion">Javascript</h2>
 		</section>
 	</div>  
 	
