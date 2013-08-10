@@ -19,8 +19,7 @@ app.set('view engine', 'ejs');
 
 
 //enviroment
-var isDev = (!process.env.DYNO != null);
-
+var isDev = ('development' == app.get('env'));
 
 String.prototype.hashCode = function(){
     var hash = 0;
@@ -34,10 +33,10 @@ String.prototype.hashCode = function(){
 }
 
 function enviromentHost(url){
-    if(false){
+    if(isDev){
       return url;
     }else{
-      return url.replace('dev-','').replace(':3000','');
+      return url.replace('dev-','');
     }
 }
 
