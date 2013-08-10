@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 
 
 //enviroment
-var isDev = (!process.env.DYNO != null);
+var isDev = ('development' == app.get('env'));
 
 
 String.prototype.hashCode = function(){
@@ -34,14 +34,18 @@ String.prototype.hashCode = function(){
 }
 
 function enviromentHost(url){
-  return url.replace('dev-','');
+    if(isDev){
+      return url;
+    }else{
+      return url.replace('dev-','');
+    }
 }
 
 //4//
 var staticHost = 'http://dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'');
 
 app.locals.createStaticLink = function(paht) {
-  return (staticHost + paht);
+  return (enviromentHost(staticHost) + paht);
 }
 
 //5//
@@ -52,7 +56,7 @@ var imagesHost = [
 
 app.locals.createImageLink = function(paht) {
   var pos = Math.abs(paht.hashCode()) % imagesHost.length;
-  return (imagesHost[pos] + paht);
+  return (enviromentHost(imagesHost[pos]) + paht);
 }
 
 
@@ -79,7 +83,6 @@ if ('development' == app.get('env')) {
 }
 
 //2//
-
 
 
 app.all('*', function(req, res, next){
