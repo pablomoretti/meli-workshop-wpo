@@ -7,16 +7,16 @@ Buscar //X//
 
 12) Javascript
 
- - Lo movemos al abajo 
+ - Lo movemos al abajo
 
  - Lo ejecutamos asyncronicamente, pero lo tenemos que unificar
 
  	<script>
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = '<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>'
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = '<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>'
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
 	</script>
 
  - Lo cargarmos onload
@@ -67,25 +67,25 @@ d.open("get",b,!0);return d}:e.XDomainRequest&&(k=function(b){d=new e.XDomainReq
 Facebook SDK (Like bottom)
 
 	<script>
-	(function() {
-	  var url = '//connect.facebook.net/en_US/all.js';
-	  var iframe = document.createElement('iframe');
-	  (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0";
-	  iframe.src = "javascript:false";
-	  document.getElementById('fb-root').appendChild(iframe);
-	  var doc = iframe.contentWindow.document;
-	  doc.open().write('<body onload="'+
-	    'window.inDapIF = true;' +
-	    'var js = document.createElement(\'script\');'+
-	    'js.src = \''+ url +'\';'+
-	    'document.body.appendChild(js);">');
-	  doc.close();
-	}());
+		(function() {
+			var url = '//connect.facebook.net/en_US/all.js';
+			var iframe = document.createElement('iframe');
+				(iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0";
+				iframe.src = "javascript:false";
+				document.getElementById('fb-root').appendChild(iframe);
+			var doc = iframe.contentWindow.document;
+				doc.open().write('<body onload="'+
+					'window.inDapIF = true;' +
+					'var js = document.createElement(\'script\');'+
+					'js.src = \''+ url +'\';'+
+					'document.body.appendChild(js);">');
+				doc.close();
+		}());
 
-	// async init once loading is done
-	window.fbAsyncInit = function() {
-	  FB.init({xfbml: true});
-	};
+		// async init once loading is done
+		window.fbAsyncInit = function() {
+			FB.init({xfbml: true});
+		};
 	</script>
 
 15) Ads (internos y externos)
