@@ -16,31 +16,77 @@
 
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/jquery.prettify.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+
 
 </head>
 <body>
 	  
 	<header>
 		<h1><%= title %></h1>
+		<ul>
+			<li class="navSection"><a href="#server">Server</a></li>
+			<li class="navSection"><a href="#images">Imagenes</a></li>
+			<li class="navSection"><a href="#javascript">Javascript</a></li>
+			<!-- <li class="navSection"><a href="#navEjemplos">Ejemplos</a></li> -->
+		</ul>
 	</header>
 
 	<div class="wraperBody">
-		<a href="/page"> Next Page </a> <br><br>
-		<section id="definicion">
-			<h1 class="definicion">Imágenes</h1>
+		
+		<section id="server">
+
+			<h2 class="definicion">Configurando el server</h2>
+			<article>
+				<h3>Activar GZIP</h3>
+	  			<p>
+	  				Es un tipo de <strong>compresión HTTP</strong>, que nos permite reducir el ancho de banda y las velocidades de respuesta.<br>
+	  				Cuando tengamos gzip activado, el server responderá <strong>Content-encoding: gzip</strong> en el header de respuesta.
+	  			</p>
+			</article>
+			<article>
+				<h3>Cache de recursos estáticos</h3>
+	  			<p>
+	  				Reducimos el pedido de recursos, que son modificados con poca frecuencia. Estos recursos serán <strong>guardados en el browser o el proxy</strong>.
+	  				Deberíamos cachear CSS, JS, HTML estático, Imágenes, Flash?, PDF, Media Files. 
+	  			</p>
+			</article>
+			<article>
+				<h3>Unificar y minificar archivos estáticos</h3>
+	  			<p>
+	  				Unificando los archivos vamos a <strong>reducir la cantidad de request</strong> que estamos enviando. Minificando los archivos <strong>reducimos la cantidad de bytes</strong> que enviamos a treves de la red, permitiendonos acelerar los tiempos de descarga.
+	  			</p>
+			</article>
+			<article>
+				<h3>Cookieless domain</h3>
+	  			<p>
+	  				Para el contenido estático debemos evitar que los recursos sean servidos por el mismo dominio en el cual seteamos nuestras cookies. <strong>Las imágenes, CSS y JS no necesitan ser acompañados por cookies</strong>.
+	  			</p>
+			</article>
+			<article>
+				<h3>Descargas en paralelo</h3>
+	  			<p>
+	  				Utilizar múltiples dominios para la descarga de recursos, nos permite <strong>acelerar los tiempos de respuesta</strong> de nuestra aplicación. La utilizaremos principalmente para la descarga de imágenes en paralelo. 
+	  			</p>
+			</article>
+
+		</section>
+
+		<section id="images">
+			<h2 class="definicion">Imágenes</h2>
 
 			<!-- //6// --> <!-- //7// -->
-			<h2>Optimización mejorando la compresión.</h2>
 			<article class="imageWrapper">
+				<h3>Optimización mejorando la compresión.</h3>
 	  			<img src="<%=createImageLink('/images/music-icon.png')%>" /> <br>
 			</article>
 
 			<!-- //8//A -->
-			<h2>Recursos lazy load.</h2>
 			<article class="imageWrapper">
+				<h3>Recursos lazy load.</h3>
 				<ul class="items-list">
-					<!-- <li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
@@ -55,9 +101,9 @@
 					<li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
+					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
 					
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<!-- <li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
@@ -72,17 +118,17 @@
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
 					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
 				</ul>
 			</article>
 
 			<!-- //8//B -->
-			<h2>Recursos bajo demanda.</h2>
 			<article class="imageWrapper">
+				<h3>Recursos bajo demanda.</h3>
 	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 			</article>
 		</section>
 	</div>  
-	  
+	
   </body>
 </html>

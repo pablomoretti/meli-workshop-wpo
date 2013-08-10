@@ -1,7 +1,12 @@
-
-
+/**
+ * Cached window object
+ * @type {object}
+ */
 var locaJqueryWindow = $(window);
 
+/**
+ * Lazy Load
+ */
 (function imageLazy(jqueryWindow){
 
 	var isLoadead = (document.readyState === "complete");
@@ -25,6 +30,9 @@ var locaJqueryWindow = $(window);
 })(locaJqueryWindow);
 
 
+/**
+ * Images on demand
+ */
 (function imageOnDemand(jqueryWindow){
 
 	var isOnTop = jqueryWindow.scrollTop() != 0;
@@ -45,3 +53,128 @@ var locaJqueryWindow = $(window);
 	}
 
 })(locaJqueryWindow);
+
+
+/**
+ * Page Scroll
+ */
+// (function(window, undefined, ch) {
+// 	var animElement = ($.browser.msie || $.browser.mozilla) ? $('html') : $('body');
+
+// 	var priv = {
+// 		'$selectedItem': undefined,
+// 		'hashes': {},
+// 		'triggers': {},
+// 		// adds and remove the class from the selected item and the deselected item
+// 		'selectNavItem': function ($selected) {
+
+// 				if(priv.$selectedItem){
+// 					priv.$selectedItem.removeClass('dc-main-navigation-item-selected');
+// 				}
+
+// 				priv.$selectedItem = $selected.parent();
+// 				priv.$selectedItem.addClass('dc-main-navigation-item-selected');
+
+// 		},
+// 		// initializes the navigation
+// 		'animateScroll': function (jQObject) {
+
+// 			jQObject.each(function(i, e){
+// 				var e = $(e);
+
+// 				var sectionReference = e.attr('href'),
+// 					sectionName = sectionReference.split('#')[1],
+// 					offset = parseInt($(sectionReference).offset().top),
+// 					endOffset = parseInt(offset + $(sectionReference).outerHeight() - 1);
+
+// 				// saves the offset in each button
+// 				e.attr('data-section',sectionName).attr('data-offset', offset + 1);
+// 				priv.hashes[sectionName] = [parseInt(offset), parseInt(endOffset)];
+// 				if(!priv.triggers[sectionName]){
+// 					priv.triggers[sectionName] = e.attr('id', sectionName + '-trigger');
+// 				}
+// 			});
+
+// 			jQObject.on('click', function (event) {
+// 				event.preventDefault();
+
+// 				var $me = $(this),
+// 					offset = $me.attr('data-offset'),
+// 					sectionName = $me.attr('data-section');
+
+// 				priv.animOn = true;
+
+// 				animElement.animate({
+// 					scrollTop: (offset - 10)
+// 				}, 1000, function () {
+// 					priv.animOn = false;
+// 					window.location.hash = "!" + sectionName;
+
+// 				});
+
+// 				priv.selectNavItem(priv.triggers[sectionName]);
+
+// 			});
+// 		},
+
+// 		'checkScrollPosition': function () {
+// 			var HTMLOffset = ( animElement.scrollTop() + 100 ),
+// 				viewportHeight = ch.viewport.height;
+// 			// si offset es mayor que HTMLOffset y menor que
+
+// 			if(!priv.animOn){
+// 				for(var hash in priv.hashes){
+// 					var	id = '#' + hash;
+// 					var offset = priv.hashes[hash];
+
+// 					if((HTMLOffset > offset[0]) && (HTMLOffset <= offset[1])) {
+// 						priv.selectNavItem($(id + '-trigger'));
+// 						window.location.hash = '!' + hash;
+// 						break;
+// 					}
+
+// 				}
+// 			}
+
+// 		},
+// 		'checkActiveSection': function() {
+// 			var hash = window.location.hash;
+
+// 			if( hash ){
+// 				var	sectionName = hash.split('!')[1],
+// 					$sectionSelected = $('#' + sectionName + '-trigger'),
+// 					offset = $('#' + sectionName + '-trigger').attr('data-offset');
+
+// 					if(sectionName){
+// 						priv.animOn = true;
+// 						animElement.animate({
+// 							scrollTop: (offset - 49)
+// 						}, 1000, function () {
+// 							priv.animOn = false;
+// 							priv.selectNavItem($sectionSelected);
+
+// 						});
+// 					}
+// 			}
+// 		},
+// 		'animOn': false
+// 	};
+
+// 	var app = (function () {
+// 		var core = {
+// 			animateNav: function (jQObject) {
+
+// 				priv.animateScroll(jQObject);
+// 				window.setTimeout(priv.checkActiveSection, 75);
+			
+// 			},
+// 			animOn: priv.animOn
+// 		};
+// 		window.onscroll = priv.checkScrollPosition;
+
+// 		return core;
+// 	})();
+
+// 	window.devConf = app;
+
+// })(this, undefined, ch);
