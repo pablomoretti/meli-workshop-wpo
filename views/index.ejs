@@ -77,7 +77,6 @@
 	  				Utilizar múltiples dominios para la descarga de recursos, nos permite <strong>acelerar los tiempos de respuesta</strong> de nuestra aplicación. La utilizaremos principalmente para la descarga de imágenes en paralelo. 
 	  			</p>
 			</article>
-
 		</section>
 
 		<section id="images">
@@ -90,12 +89,27 @@
 	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
 	  			<!-- <img src="<%=createImageLink('/images/products-optimized.png')%>" /> -->
 			</article>
+			<article >
+				<h3 class="definicion">Sprites</h3>
+				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. </p>
+				<ul class="small-image-list">
+					<li><img src="<%=createImageLink('/images/rocket.png')%>" width="36" height="36"></li>
+					<li><img src="<%=createImageLink('/images/spriteIm1.png')%>" width="36" height="36"></li>
+					<li><img src="<%=createImageLink('/images/spriteIm2.png')%>" width="36" height="36"></li>
+					<li><img src="<%=createImageLink('/images/spriteIm3.png')%>" width="36" height="36"></li>
+				</ul>
+			</article>
+			<article>
+				<h3 class="definicion">Data:Uri</h3>
+				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra múltiples request a imágenes.</p>
+				<div class="rockets-data-uri"></div>		
+			</article>
 			<article>
 				<h3 class="definicion">Icon Fonts</h3>
 				<p>Imágenes vectoriales embebidas en fuentes, que nos permiten cambiarle el color, tamaño, estilos y aplicarle efectos. Reducimos la cantidad de request y podemos utiliarlas en distintinas densidades de pantalla.</p>
 			</article>
 			<article>
-				<ul>
+				<ul class="small-image-list" >
 					<li><i class="icon-rocket">&nbsp;Defualt</i></li>
 					<li><i class="icon-rocket icon-2x"></i>&nbsp;2X size</li>
 					<li><i class="icon-rocket icon-rotate-90">&nbsp;Rotate 90</i></li>
@@ -207,8 +221,6 @@
 	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 	  			<!-- <img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" > -->
 			</article>
-
-
 		</section>
 		<section id="javascript">
 			<h2 class="definicion">Javascript</h2>
@@ -331,6 +343,5 @@
 			</article>
 		</section>
 	</div>
-	
   </body>
 </html>

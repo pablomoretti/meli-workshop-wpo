@@ -397,7 +397,24 @@ a:visited {
 	}
 
 }
+/**
+* Sprites sample
+*/
+.small-image-list {
+	list-style-type: none;
+	margin-top: 5px;
+}
 
+
+/**
+* Data Uri sample
+*/
+.rockets-data-uri{	
+	width: 38px;
+	height: 36px;
+	background-repeat: no-repeat;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAkCAIAAABql9/yAAAAA3NCSVQICAjb4U/gAAAAGXRFWHRTb2Z0d2FyZQBnbm9tZS1zY3JlZW5zaG907wO/PgAAA0VJREFUWIW9lk1oE0EUx2eT7UZbNhRJwWIFmx5q8KvWYlFoc7D1qwcx9WC8WMUoGAqCKa0HD7YFaT2YgiReTFEoNFrwAyNYSjE5xUvroR5swDYKxhZbKLvb3Z39GA9RG/Yj2Q2J/8vuzpt5v31v9r0dbHV1FRgQQsjINCOy/GeeIWRpeYWRJecVQJaDlw9ZJl4+ZPmkjSxfiAAAvFQ8ajmZSMST86lUOp3J0BAAQLhDM6PNBFI4VCLN8/hMMhoKPZlJQZVJtpIkBql8SNM8amFyuH8ssa5ttdmrrVYMwxTDW3tplscvvuy/6MvlOTs9ng7n1oyaww5CwydeHI+aC/r90VTOCNEZeRFq2wZ/nep135iFAACiwblDlqHKs8bnY4Tn80fTilEEIITyJstJfwYaOlwVsqzeYRyYDJFffOZX8wCAM1cv9Z7bJ316G89SXN6jDlFk1M5xcynNxAZ84ZSOcWn29dK/h9YrJ3YhYUPQQOZxH5+MfvxGUxQFaZi9rKXT6+pMacjhDXRVCwIty2qbLjITGxoYmzfiXi2ya/T2oQqOUlZkVjo9looHg0XygMMTHGyz8bwoisaR/EJoNEEXB2wKRIaOV4osy8paWdVBLkeHX+k0lAJyeicivkacYRg9HtDay8y7B2F1DRjh9USm7rRUMQyjl1JtJJUMPpwzjyNaAxNh38EqhmEghPkLT5VYotbx95Z0tXsDI+ERr1M5SbGkfWR64tqBSpqmC/KAOkqy+db4+N7pn3Xtne4GOxBFURBOPyWFyzenvur5qGtvqZUYmhEEjcJXS+Pz2e46c+Fk804rs7GxQVEUy7LEkb7xR926sdrsuCRJkmSwkWkgEUIQQo7jRFGUZRkhJMuyrUWfaicJpPz1m0NqCiFka+l7fP8YoTIRpJ0w06hNnPAQQsz3H+oWa7OrX6NESAAy8ZhGxdY47WVJLAAArCWVRMLlGXnz/Hq9JEnaS7Rk4lSwlozl/CnJJu/de4HzjVUSt7nJ87zxKE0gidr9e8DnZQDI1p6hwb6z9RU8z1EUZ7w8ssJWVlaMz+a/vP8gtHW7d1sEgWVZSZLytO/SIDEMw3HcYrFkG01x53pzJzyEkCAIRWBy9RvvxsqYrKSb1QAAAABJRU5ErkJggg==);
+}	
 
 /**
  *	Performance Pannel
@@ -421,14 +438,7 @@ a:visited {
 	margin-bottom: 20px;
 }
 
-
 /**
  *	Icons
  */
-
-
-
-
-
-
 
