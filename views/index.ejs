@@ -8,17 +8,39 @@
 	<title><%= title %></title>
 
 	<!-- //3// -->
+		
 
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
-	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/local.css')%>' />
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+		
+	<!--	
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-min-0.13.4.css')%>'/>
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app-min.css')%>' />
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	-->
+	<!--	
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-app-min.css')%>' />
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	-->
 
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
 	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
 
+		
+	<!--
+	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.min.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/app.min.js')%>' ></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+	-->
+	<!--	
+	<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+	-->
 </head>
 <body>
 	  
@@ -35,11 +57,13 @@
 	<div class="wraperBody">
 		<section class="performance-pannel">
 			<h4>Time to first byte</h4>
-			<p id="timerTtfb">0.867ms</p>
+			<p id="timerTtfb">0 ms</p>
 			<h4>DOMContentLoaded</h4>
-			<p id="timerDomLoaded">1.23ms</p>
+			<p id="timerDomLoaded">0 ms</p>
 			<h4>Onload</h4>
-			<p id="timerOnloaded">4.867ms</p>
+			<p id="timerOnloaded">0 ms</p>
+			<h4>Total</h4>
+			<p id="timerTotal">0 sms</p>
 		</section>
 		
 		<section id="server">
@@ -343,5 +367,24 @@
 			</article>
 		</section>
 	</div>
+	<script>
+		window.onload = function(){
+		  setTimeout(function(){
+			var t = performance.timing;
+			var perfMap = {
+				ttfb: t.responseStart - t.connectEnd,
+				domLoaded: t.domComplete - t.domLoading,
+				onLoad: t.loadEventStart - t.responseEnd,
+				total:  t.loadEventEnd - t.navigationStart
+			}
+			$("#timerTtfb").text((perfMap.ttfb/1000)+" s");
+			$("#timerDomLoaded").text((perfMap.domLoaded/1000)+" s");
+			$("#timerOnloaded").text((perfMap.onLoad/1000)+" s");
+			$("#timerTotal").text((perfMap.total/1000)+" s");
+				
+			
+		  }, 0);
+		}
+	</script>
   </body>
 </html>
