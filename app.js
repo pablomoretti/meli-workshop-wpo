@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 //1//
-
+//app.use(express.compress());
 
 //enviroment
 var isDev = ('development' == app.get('env'));
@@ -45,6 +45,8 @@ function enviromentHost(url){
 
 //4//
 var staticHost = 'http://dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'');
+//var staticHost = 'http://dev-wpo-static.zapto.org' + ((isDev)?':3000':'');
+
 
 app.locals.createStaticLink = function(paht) {
   return (enviromentHost(staticHost) + paht);
@@ -55,6 +57,12 @@ var imagesHost = [
   ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'')),
   ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':''))
   ];
+/*
+var imagesHost = [
+	  ('http://' + 'dev-meli-wpo1.zapto.org' + ((isDev)?':3000':'')),
+	  ('http://' + 'dev-meli-wpo2.zapto.org' + ((isDev)?':3000':''))
+	  ];
+*/
 
 app.locals.createImageLink = function(paht) {
   var pos = Math.abs(paht.hashCode()) % imagesHost.length;
@@ -86,6 +94,12 @@ if ('development' == app.get('env')) {
 }
 
 //2//
+/*
+app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
+	res.set('Cache-Control', 'max-age=3000000');
+    next();
+});
+*/
 
 
 app.all('*', function(req, res, next){
