@@ -28,7 +28,6 @@
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
 
 		
 	<!--
@@ -62,7 +61,7 @@
 			<p id="timerDomLoaded">0 ms</p>
 			<h4>Onload</h4>
 			<p id="timerOnloaded">0 ms</p>
-			<h4>Total</h4>
+			<h4>Fully Loaded</h4>
 			<p id="timerTotal">0 sms</p>
 		</section>
 		
@@ -161,7 +160,7 @@
 				<p>Descargamos las imágenes en el document complete.</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 (function&nbsp;imageLazy(window){
 	var&nbsp;isLoadead&nbsp;=&nbsp;(document.readyState&nbsp;===&nbsp;&quot;complete&quot;);
 	function&nbsp;lazyImages(){
@@ -224,7 +223,7 @@
 				<p>Usando el evento scroll para descargar una imágen.</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 (function&nbsp;imageOnDemand(window){
 	var&nbsp;isOnTop&nbsp;=&nbsp;$(window).scrollTop()&nbsp;!=&nbsp;0;
 	function&nbsp;onScroll(){
@@ -266,7 +265,7 @@
 				<p>Cargando el javascript asincrónicamente, podemos tener un mejor control de los llamados.</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 &lt;script&gt;
 	(function()&nbsp;{
 		var&nbsp;ga&nbsp;=&nbsp;document.createElement('script');
@@ -283,7 +282,7 @@
 				<p>Cargando el javscript en el onload y usando callbacks para las dependendencias.</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 &lt;script&gt;
 	/*&nbsp;src.js&nbsp;0B&nbsp;0.1.4&nbsp;-&nbsp;14/10/2011&nbsp;-&nbsp;Little&nbsp;tiny&nbsp;loader&nbsp;for&nbsp;javascript&nbsp;sources.&nbsp;*/(function(a){window.src={js:function(o,h){if(typeof&nbsp;o===&quot;string&quot;){o=[o]}var&nbsp;j,k,m,l,f,g,d;j=a.getElementsByTagName(&quot;script&quot;)[0];k={t:o.length,i:0};k.r=function(){return&nbsp;k.t===k.i};m=function(){k.i+=1;if(h&amp;&amp;k.r()){h()}};l=(function(){if(j.readyState){return&nbsp;function(b){b.onreadystatechange=function(){if(b.readyState===&quot;loaded&quot;||b.readyState===&quot;complete&quot;){b.onreadystatechange=null;m()}}}}else{return&nbsp;function(b){b.onload=function(){m()}}}}());f=0;g=a.createElement(&quot;script&quot;);for(f;f&lt;k.t;f+=1){d=g.cloneNode(true);l(d);d.src=o[f];j.parentNode.insertBefore(d,j)}}}}(document));
 &lt;/script&gt;
@@ -301,7 +300,7 @@
 				<p>Si queremos compartir cache podemos usar algunas librerias como <a href="https://github.com/pablomoretti/jcors-loader">jcors-loader</a>, <a href="http://labjs.com/">LABSjs</a>, <a href="http://yepnopejs.com/">yepnope.js</a>.</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 &lt;script&gt;
 	&lt;!-- jcors-loader --&gt;
 	(function(e){function&nbsp;l(){for(var&nbsp;b=!0,a,c=h,d=f.length;c&lt;d&amp;&amp;b;)if(a=f[c],void&nbsp;0!==a&amp;&amp;null!==a){if(&quot;string&quot;===typeof&nbsp;a){var&nbsp;g=m.cloneNode(!1);g.text=a;i.parentNode.insertBefore(g,i)}else&nbsp;a.apply(e);h=c+1;f[c]=null;c+=1}else&nbsp;b=!1}function&nbsp;g(){if(f.length){var&nbsp;b=f.pop(),a;&quot;string&quot;===typeof&nbsp;b?(a=m.cloneNode(!0),a.type=&quot;text/javascript&quot;,a.async=!0,a.src=b,a.onload=a.onreadystatechange=function(){if(!a.readyState||/loaded|complete/.test(a.readyState))a.onload=a.onreadystatechange=null,a=void&nbsp;0,g()},i.parentNode.insertBefore(a,i)):(b.apply(e),g())}}function&nbsp;p(b,a){return&nbsp;function(){f[a]=b.responseText;l();b=void&nbsp;0}}function&nbsp;q(){var&nbsp;b=arguments.length,a,c;for(a=0;a&lt;b;a+=1)&quot;string&quot;===typeof&nbsp;arguments[a]?(c=j(arguments[a]),c.onload=p(c,a+h),c.send()):(f[a+h]=arguments[a],l())}function&nbsp;r(){f=Array.prototype.slice.call(arguments,0).reverse();g()}var&nbsp;n=e.document,m=n.createElement(&quot;script&quot;),i=n.getElementsByTagName(&quot;script&quot;)[0],f=[],h=0,j,d,k;e.XMLHttpRequest&amp;&amp;(d=new&nbsp;e.XMLHttpRequest,&quot;withCredentials&quot;in&nbsp;d?k=function(b){d=new&nbsp;e.XMLHttpRequest;d.open(&quot;get&quot;,b,!0);return&nbsp;d}:e.XDomainRequest&amp;&amp;(k=function(b){d=new&nbsp;e.XDomainRequest;d.open(&quot;get&quot;,b);return&nbsp;d}));j=k;e.JcorsLoader={load:j?q:r}})(window);
@@ -319,7 +318,7 @@
 				<p>Facebook SDK (Like bottom).</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 &lt;script&gt;
 	(function()&nbsp;{
 		var&nbsp;url&nbsp;=&nbsp;'//connect.facebook.net/en_US/all.js';
@@ -346,7 +345,7 @@
 				<p>Ads (internos y externos).</p>
 			</article>
 			<article class="code_snippet_container">
-				<pre rel="HTML" class="prettyprint snippet03">
+				<pre>
 &lt;script&gt;
 	(function(url)&nbsp;{
 		var&nbsp;iframe&nbsp;=&nbsp;document.createElement('iframe');
