@@ -55,6 +55,36 @@ var locaJqueryWindow = $(window);
 })(locaJqueryWindow);
 
 
+(function prettyTiming(jqueryWindow){
+
+	var isLoadead = (document.readyState === "complete");
+
+	function init(){
+		setTimeout(function(){
+			var t = performance.timing;
+			var perfMap = {
+				ttfb: t.responseStart - t.connectEnd,
+				domLoaded: t.domContentLoadedEventEnd - t.responseStart,
+				onLoad: t.loadEventStart - t.responseEnd,
+				total:  t.loadEventEnd - t.navigationStart
+			}
+			$("#timerTtfb").text((perfMap.ttfb/1000)+" s");
+			$("#timerDomLoaded").text((perfMap.domLoaded/1000)+" s");
+			$("#timerOnloaded").text((perfMap.onLoad/1000)+" s");
+			$("#timerTotal").text((perfMap.total/1000)+" s");
+
+		},0);
+	}
+
+	if (isLoadead) {
+		init();
+	}else{
+		jqueryWindow.load(init);
+	}
+	
+
+})(locaJqueryWindow);
+
 /**
  * Page Scroll
  */
