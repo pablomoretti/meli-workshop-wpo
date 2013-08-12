@@ -20,7 +20,6 @@ app.set('view engine', 'ejs');
 
 //enviroment
 var isDev = ('development' == app.get('env'));
-//var isDev = (!process.env.DYNO != null);
 
 String.prototype.hashCode = function(){
     var hash = 0;
@@ -35,7 +34,6 @@ String.prototype.hashCode = function(){
 
 function enviromentHost(url){
     if(isDev){
-    //if(false){
       return url;
     }else{
       return url.replace('dev-','');
@@ -101,11 +99,12 @@ app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function
 });
 */
 
-
+/*
 app.all('*', function(req, res, next){
 	res.set('Access-Control-Allow-Origin', '*');
     next();
 });
+*/
 
 app.get('/', routes.index);
 
