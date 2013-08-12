@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 //enviroment
 //var isDev = ('development' == app.get('env'));
-var isDev = process.env.PORT || false
+var isDev = !(process.env.PORT || false)
 
 String.prototype.hashCode = function(){
     var hash = 0;
