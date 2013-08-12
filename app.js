@@ -19,7 +19,8 @@ app.set('view engine', 'ejs');
 //app.use(express.compress());
 
 //enviroment
-var isDev = ('development' == app.get('env'));
+//var isDev = ('development' == app.get('env'));
+var isDev = (!process.env.DYNO != null);
 
 String.prototype.hashCode = function(){
     var hash = 0;
@@ -34,10 +35,11 @@ String.prototype.hashCode = function(){
 
 function enviromentHost(url){
     if(isDev){
+    //if(false){
       return url;
     }else{
-      return url.replace('dev-','');
-      //return url.replace('dev-','').replace(':3000','');
+      //return url.replace('dev-','');
+      return url.replace('dev-','').replace(':3000','');
     }
 }
 
