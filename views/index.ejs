@@ -8,8 +8,6 @@
 	<title><%= title %></title>
 
 	<!-- //3// -->
-		
-
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
@@ -18,39 +16,32 @@
 	<!--	
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-min-0.13.4.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app-min.css')%>' />
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' />
 	-->
-	<!--	
+
+	<!--
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-app-min.css')%>' />
-	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' />
 	-->
 
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
 
-		
 	<!--
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.min.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.min.js')%>' ></script>
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
 	-->
+
 	<!--	
 	<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
-	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
 	-->
 </head>
 <body>
 	  
 	<header>
 		<h1><%= title %></h1>
-		<ul>
-			<!--li class="navSection"><a href="#server">Server</a></li>
-			<li class="navSection"><a href="#images">Imagenes</a></li>
-			<li class="navSection"><a href="#javascript">Javascript</a></li-->
-			<!-- <li class="navSection"><a href="#navEjemplos">Ejemplos</a></li> -->
-		</ul>
 	</header>
 
 	<div class="wraperBody">
@@ -62,7 +53,7 @@
 			<h4>Onload</h4>
 			<p id="timerOnloaded">0 ms</p>
 			<h4>Fully Loaded</h4>
-			<p id="timerTotal">0 sms</p>
+			<p id="timerTotal">0 ms</p>
 		</section>
 		
 		<section id="server">
@@ -109,28 +100,27 @@
 			<article class="imageWrapper">
 				<h3>Optimización PNG</h3>
 				<p>Comprimiendo nuestros PNG24 podemos reducir el peso entre un 80% y 95%. <a href="http://www.smushit.com/ysmush.it/" target="_blank">Smush.it</a>, <a href="http://tinypng.org/" target="_blank">Tinypng</a>, <a href="https://github.com/gruntjs/grunt-contrib-imagemin" target="_blank">Grunt Plugin</a></p>
+
+				<!-- //6// -->
 	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
-	  			<!-- <img src="<%=createImageLink('/images/products-optimized.png')%>" /> -->
+
 			</article>
 			<article >
 				<h3 class="definicion">Sprites</h3>
-				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. <a href="http://pixlr.com/editor/"></a></p>
+				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. <a href="http://pixlr.com/editor/" target="_blank">Photoshop online</a></p>
+				
+				<!-- //9// -->
 				<p>
 					<img src="<%=createImageLink('/images/no-sprite-1.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-2.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-3.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-4.png')%>">
 				</p>
-				<!-- <p>
-					<i class="sprite icon-users"></i>
-					<i class="sprite icon-clock"></i>
-					<i class="sprite icon-secure"></i>
-					<i class="sprite icon-trucks"></i>
-				<p> -->
+
 			</article>
 			<article>
 				<h3 class="definicion">Data:Uri</h3>
-				<p>Embebiendo la metadata de una imágen en base64, podemos evitar el llamado de la misma. Es una buena opción cuando tenemos imágenes menores a 1kb. <a href="http://webcodertools.com/imagetobase64converter/Create">Online converter</a></p>
+				<p>Embebiendo la metadata de una imágen en base64, podemos evitar el llamado de la misma. Es una buena opción cuando tenemos imágenes menores a 1kb. <a href="http://webcodertools.com/imagetobase64converter/Create">Online convert</a></p>
 
 				<!-- //7// -->
 				<p><img src="<%=createImageLink('/images/datauri.png')%>" /></p>
@@ -138,7 +128,7 @@
 			</article>
 			<article>
 				<h3 class="definicion">Icon Fonts</h3>
-				<p>Imágenes vectoriales embebidas en fuentes, que nos permiten cambiarle el color, tamaño, estilos y aplicarle efectos. Reducimos la cantidad de request y podemos utiliarlas en distintinas densidades de pantalla.</p>
+				<p>Imágenes vectoriales embebidas en fuentes, que nos permiten cambiarle el color, tamaño, estilos y aplicarle efectos. Reducimos la cantidad de request y podemos utiliarlas en distintinas densidades de pantalla. <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>, <a href="http://icomoon.io/" target="_blank">Icon Moon</a>, <a href="http://pictos.cc/font/" target="_blank">Pictos</a>, <a href="http://fontello.com/" target="_blank">Fontello</a></p>
 			</article>
 			<article>
 				<ul class="small-image-list" >
@@ -166,10 +156,18 @@
 			
 			</article>
 			<article class="imageWrapper">
+
 				<h3>WEBP</h3>
-				<p>Es un nuevo formato de imágen desarrollado por Google. Como grandes ventajas pesa un 26% menos comparado con un PNG, y entre un 25-34% menos que un JPEG. </p>
-				<!-- <p class="webp-bg"><img src="<%=createImageLink('/images/shoes.png')%>" ></p> -->
-				<p class="webp-bg"><img src="<%=createImageLink(convertWebP('/images/shoes-webp.png'))%>" ></p>
+				<p>Es un nuevo formato de imágen desarrollado por Google. Como grandes ventajas pesa un 26% menos comparado con un PNG, y entre un 25-34% menos que un JPEG. <a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank">Install webp</a>, <a href="http://imagen.online-convert.com/es/convertir-a-webp" target="_blank">Online convert</a></p>
+
+				<p>from PNG</p>
+				<!-- //10A// -->
+				<p class="webp-bg"><img width="372" height="266" src="<%=createImageLink('/images/shoes.png')%>" ></p>
+
+				<p>form JPEG</p>
+				<!-- //10B// -->
+				<p><img width="900" height="2800" src="<%=createImageLink('/images/big-image.jpg?v1')%>" ></p>
+
 			</article>
 
 			<article>
@@ -197,6 +195,7 @@
 			</article>
 			<article class="imageWrapper">
 				<ul class="items-list">
+					<!-- //8//A -->
 					<li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
@@ -213,13 +212,12 @@
 					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
-					<!-- //8//A -->
 				</ul>
 			</article>
 
 			<article class="imageWrapper">
 				<h3>Recursos bajo demanda</h3>
-				<p>La descarga bajo demanda, evita que se realicen llamados a recursos que el usuario no visualiza. Utilizando los eventos que tenemos disponibles en el objeto window, podemos realizar estos llamados.</p>
+				<p>La descarga bajo demanda, evita que se realicen llamados a recursos que el usuario no visualiza. Utilizando los eventos que tenemos disponibles en el objeto window, podemos realizar estos llamados. <a href="/ondemand">Ejemplo</a></p>
 				<p>Usando el evento scroll para descargar una imágen.</p>
 			</article>
 			<article class="code_snippet_container">
@@ -241,8 +239,8 @@
 	}
 })(window);</pre>
 			</article>
+				<!-- //8//B -->
 	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
-	  			<!-- //8//B -->
 			</article>
 		</section>
 
@@ -316,7 +314,7 @@
 &lt;/script&gt;</pre>
 			</article>
 			<article>
-				<h3>Javscript de terceros</h3>
+				<h3>Javscript de terceros <a href="/page">page</a></h3>
 				<p>Facebook SDK (Like bottom).</p>
 			</article>
 			<article class="code_snippet_container">
@@ -344,7 +342,7 @@
 &lt;/script&gt;</pre>
 			</article>
 			<article>
-				<p>Ads (internos y externos).</p>
+				<p>Ads (internos).</p>
 			</article>
 			<article class="code_snippet_container">
 				<pre>
@@ -366,26 +364,22 @@
 	}(&quot;/static/ads-friendly-iframe.js&quot;));
 &lt;/script&gt;</pre>
 			</article>
+
+			<article>
+				<h3>Precarga de recursos <a href="/page">page</a></h3>
+				<p>stylesheets</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre>(function&nbsp;preload(jqueryWindow){<br/><br/>	var&nbsp;isLoadead&nbsp;=&nbsp;(document.readyState&nbsp;===&nbsp;&quot;complete&quot;);<br/><br/><br/>	function&nbsp;preloadResouces(arr)&nbsp;{<br/>	&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;i&nbsp;=&nbsp;arr.length,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;document,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;d.body,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isIE&nbsp;=&nbsp;'fileSize'&nbsp;in&nbsp;document,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(i--)&nbsp;{<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isIE)&nbsp;{<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Image().src&nbsp;=&nbsp;arr[i];<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>			o&nbsp;=&nbsp;d.createElement('object');<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	o.data&nbsp;=&nbsp;arr[i];<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	o.width&nbsp;=&nbsp;o.height&nbsp;=&nbsp;0;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	o.style.position&nbsp;=&nbsp;&quot;absolute&quot;;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	b.appendChild(o);<br/>	&nbsp;&nbsp;&nbsp;&nbsp;}<br/>	}<br/><br/>	function&nbsp;init(){<br/>		//preloadResouces([prefech]);<br/>	}<br/><br/>	if&nbsp;(isLoadead)&nbsp;{<br/>		init();<br/>	}else{<br/>		jqueryWindow.load(init);<br/>	}<br/>	<br/>})(locaJqueryWindow);
+				</pre>
+			</article>
+
 		</section>
+		<script type="text/javascript">
+		var prefech = '<%=createStaticLink('/stylesheets/page.css')%>';
+		</script>
+
+
 	</div>
-	<script>
-		window.onload = function(){
-		  setTimeout(function(){
-			var t = performance.timing;
-			var perfMap = {
-				ttfb: t.responseStart - t.connectEnd,
-				domLoaded: t.domComplete - t.domLoading,
-				onLoad: t.loadEventStart - t.responseEnd,
-				total:  t.loadEventEnd - t.navigationStart
-			}
-			$("#timerTtfb").text((perfMap.ttfb/1000)+" s");
-			$("#timerDomLoaded").text((perfMap.domLoaded/1000)+" s");
-			$("#timerOnloaded").text((perfMap.onLoad/1000)+" s");
-			$("#timerTotal").text((perfMap.total/1000)+" s");
-				
-			
-		  }, 0);
-		}
-	</script>
   </body>
 </html>

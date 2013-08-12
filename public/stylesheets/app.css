@@ -345,16 +345,16 @@ a:visited {
 	display: inline-block;
 	width: 28px; height: 28px;
 }
-.icon-users {
+.ico-users {
 	background-position: 0 0;
 }
-.icon-clock {
+.ico-clock {
 	background-position: 0 -34px;
 }
-.icon-secure {
+.ico-secure {
 	background-position: 0 -70px;
 }
-.icon-trucks {
+.ico-trucks {
 	background-position: 0 -104px;
 }
 
@@ -380,7 +380,7 @@ pre, code {
  */
 
 .webp-bg {
-	background: red;
+	background: #EEE;
 	width: 380px;
 	padding: 10px;
 }

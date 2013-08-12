@@ -33,3 +33,13 @@ exports.lazy = function(req, res){
 
   	res.render('lazy', model);
 };
+
+exports.ondemand = function(req, res){
+
+	var model = {
+		'title' : 'Site Speed',
+		'req'	: req
+	};
+
+  	res.render('ondemand', model);
+};

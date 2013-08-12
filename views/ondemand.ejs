@@ -1,0 +1,65 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 ie6" lang="es"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7" lang="es"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie10 lt-ie9 ie8" lang="es"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js lt-ie10 ie9" lang="es"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
+<head>
+	<title><%= title %></title>		
+
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
+
+</head>
+<body>
+	  
+	<header>
+		<h1><a href="/"><%= title %></a></h1>
+	</header>
+
+	<div class="wraperBody">
+		<section class="performance-pannel">
+			<h4>Time to first byte</h4>
+			<p id="timerTtfb">0 ms</p>
+			<h4>DOMContentLoaded</h4>
+			<p id="timerDomLoaded">0 ms</p>
+			<h4>Onload</h4>
+			<p id="timerOnloaded">0 ms</p>
+			<h4>Fully Loaded</h4>
+			<p id="timerTotal">0 sms</p>
+		</section>
+		<section id="images">
+			<article class="imageWrapper">
+				<h3>Recursos bajo demanda</h3>
+				<p>Usando el evento scroll para descargar una imágen.</p>
+			</article>
+			<article>
+				<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+			</article>
+		</section>
+	</div>
+
+	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+	<script>
+		window.onload = function(){
+		  setTimeout(function(){
+			var t = performance.timing;
+			var perfMap = {
+				ttfb: t.responseStart - t.connectEnd,
+				domLoaded: t.domComplete - t.domLoading,
+				onLoad: t.loadEventStart - t.responseEnd,
+				total:  t.loadEventEnd - t.navigationStart
+			}
+			$("#timerTtfb").text((perfMap.ttfb/1000)+" s");
+			$("#timerDomLoaded").text((perfMap.domLoaded/1000)+" s");
+			$("#timerOnloaded").text((perfMap.onLoad/1000)+" s");
+			$("#timerTotal").text((perfMap.total/1000)+" s");
+				
+			
+		  }, 0);
+		}
+	</script>
+  </body>
+</html>

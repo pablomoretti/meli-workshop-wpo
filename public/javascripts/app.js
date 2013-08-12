@@ -11,7 +11,7 @@ var locaJqueryWindow = $(window);
 
 	var isLoadead = (document.readyState === "complete");
 
-	function lazyImages(){
+	function init(){
 		var obj;
 		$("img.lazy").each(function changeSouce(){
 			obj=$(this);
@@ -21,9 +21,9 @@ var locaJqueryWindow = $(window);
 	}
 
 	if (isLoadead) {
-		lazyImages();
+		init();
 	}else{
-		jqueryWindow.load(lazyImages);
+		jqueryWindow.load(init);
 	}
 	
 
@@ -37,7 +37,7 @@ var locaJqueryWindow = $(window);
 
 	var isOnTop = jqueryWindow.scrollTop() != 0;
 
-	function onScroll(){
+	function init(){
 		var obj;
 		$("img.scroll").each(function changeSouce(){
 			obj=$(this);
@@ -47,13 +47,83 @@ var locaJqueryWindow = $(window);
 	}
 
 	if(isOnTop){
-		onScroll();
+		init();
 	}else{
-		jqueryWindow.one('scroll', onScroll);
+		jqueryWindow.one('scroll', init);
 	}
 
 })(locaJqueryWindow);
 
+
+(function prettyTiming(jqueryWindow){
+
+	var isLoadead = (document.readyState === "complete");
+
+	function init(){
+		setTimeout(function(){
+			var t = performance.timing;
+			var perfMap = {
+				ttfb: t.responseStart - t.connectEnd,
+				domLoaded: t.domContentLoadedEventEnd - t.responseStart,
+				onLoad: t.loadEventStart - t.responseEnd,
+				total:  t.loadEventEnd - t.navigationStart
+			}
+			$("#timerTtfb").text((perfMap.ttfb/1000)+" s");
+			$("#timerDomLoaded").text((perfMap.domLoaded/1000)+" s");
+			$("#timerOnloaded").text((perfMap.onLoad/1000)+" s");
+			$("#timerTotal").text((perfMap.total/1000)+" s");
+
+		},0);
+	}
+
+	if (isLoadead) {
+		init();
+	}else{
+		jqueryWindow.load(init);
+	}
+	
+
+})(locaJqueryWindow);
+
+
+
+
+
+(function preload(jqueryWindow){
+
+	var isLoadead = (document.readyState === "complete");
+
+
+	function preloadResouces(arr) {
+	    var i = arr.length,
+	        d = document,
+	        b = d.body,
+	        isIE = 'fileSize' in document,
+	        o;
+	    while (i--) {
+	        if (isIE) {
+	            new Image().src = arr[i];
+	            continue;
+	        }
+			o = d.createElement('object');
+	    	o.data = arr[i];
+	    	o.width = o.height = 0;
+	    	o.style.position = "absolute";
+	    	b.appendChild(o);
+	    }
+	}
+
+	function init(){
+		//preloadResouces([prefech]);
+	}
+
+	if (isLoadead) {
+		init();
+	}else{
+		jqueryWindow.load(init);
+	}
+	
+})(locaJqueryWindow);
 
 /**
  * Page Scroll
