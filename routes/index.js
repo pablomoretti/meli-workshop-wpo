@@ -23,3 +23,13 @@ exports.page = function(req, res){
 
   	res.render('page', model);
 };
+
+exports.lazy = function(req, res){
+
+	var model = {
+		'title' : 'Site Speed',
+		'req'	: req
+	};
+
+  	res.render('lazy', model);
+};

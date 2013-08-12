@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 ie6" lang="es"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7" lang="es"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie10 lt-ie9 ie8" lang="es"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js lt-ie10 ie9" lang="es"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
+<head>
+	<title><%= title %></title>		
+
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
+
+</head>
+<body>
+	  
+	<header>
+		<h1><a href="/"><%= title %></a></h1>
+	</header>
+
+	<div class="wraperBody">
+		<section class="performance-pannel">
+			<h4>Time to first byte</h4>
+			<p id="timerTtfb">0 ms</p>
+			<h4>DOMContentLoaded</h4>
+			<p id="timerDomLoaded">0 ms</p>
+			<h4>Onload</h4>
+			<p id="timerOnloaded">0 ms</p>
+			<h4>Fully Loaded</h4>
+			<p id="timerTotal">0 sms</p>
+		</section>
+		<section id="images">
+			<article>
+				<h3 class="definicion">Lazy Load</h3>
+				<p>Descargamos las imágenes en el document complete.</p>
+			</article>
+			<article class="imageWrapper">
+				<ul class="items-list">
+					<li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
+					<!-- <li><img src="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
+					
+					<!-- <li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li> -->
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="<%=createImageLink('/images/cargando.gif')%>" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
+
+					<!-- <li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
+				</ul>
+			</article>
+		</section>
+	</div>
+
+	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+	<script>
+		window.onload = function(){
+		  setTimeout(function(){
+			var t = performance.timing;
+			var perfMap = {
+				ttfb: t.responseStart - t.connectEnd,
+				domLoaded: t.domComplete - t.domLoading,
+				onLoad: t.loadEventStart - t.responseEnd,
+				total:  t.loadEventEnd - t.navigationStart
+			}
+			$("#timerTtfb").text((perfMap.ttfb/1000)+" s");
+			$("#timerDomLoaded").text((perfMap.domLoaded/1000)+" s");
+			$("#timerOnloaded").text((perfMap.onLoad/1000)+" s");
+			$("#timerTotal").text((perfMap.total/1000)+" s");
+				
+			
+		  }, 0);
+		}
+	</script>
+  </body>
+</html>
