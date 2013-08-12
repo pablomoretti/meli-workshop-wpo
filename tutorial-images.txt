@@ -6,20 +6,38 @@ Buscar //X//
 
 6) Optimizar imagenes
 
+	// Entrar en http://tinypng.org/
+
+	// Cargar products.png
+
+	// Guardar como products-optimized.png
+
+	// Agregar
 	<p><img src="<%=createImageLink('/images/products-optimized.png')%>" /></p>
 
+
+9) Sprite
+
+	<p>
+		<i class="sprite ico-users"></i>
+		<i class="sprite ico-clock"></i>
+		<i class="sprite ico-secure"></i>
+		<i class="sprite ico-trucks"></i>
+	<p>
 
 7) data: base64
 
 	<p><img alt="Truck" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAMAAAAGlBe5AAAAJFBMVEXl5eVMTExycnLZ2dmysrLy8vI/Pz/MzMxZWVm/v7////8zMzPLAzwAAAAAdUlEQVR42r3RSw6AIAwEUFDox7n/fbVQINHGjYmzgAwv6YKmY4RwS16GRz5ZoSe4FSC2RlLDmU6xkVFsFVC2BLbegpk/W30xslNUBTPCvaXsP6cOq8l1M8CtjV0lb7YHspmErVuebe2I9m46W2pVgM2ohUc7AS7fF7vA0Gc9AAAAAElFTkSuQmCC" /></p>
 
 
-
 8) Recursos Lazy y/o bajo demanda
 
 	Comprimir imagenes
-	
+
 	jpegtran -copy none -optimize public/images/item1.jpg > public/images/item1-opt.jpg; jpegtran -copy none -optimize public/images/item2.jpg > public/images/item2-opt.jpg; jpegtran -copy none -optimize public/images/item3.jpg > public/images/item3-opt.jpg; jpegtran -copy none -optimize public/images/item4.jpg > public/images/item4-opt.jpg; jpegtran -copy none -optimize public/images/item5.jpg > public/images/item5-opt.jpg; jpegtran -copy none -optimize public/images/item6.jpg > public/images/item6-opt.jpg; jpegtran -copy none -optimize public/images/item7.jpg > public/images/item7-opt.jpg; jpegtran -copy none -optimize public/images/item8.jpg > public/images/item8-opt.jpg; jpegtran -copy none -optimize public/images/item9.jpg > public/images/item9-opt.jpg; jpegtran -copy none -optimize public/images/item10.jpg > public/images/item10-opt.jpg; jpegtran -copy none -optimize public/images/ite11.jpg > public/images/item11-opt.jpg; jpegtran -copy none -optimize public/images/item12.jpg > public/images/item12-opt.jpg; jpegtran -copy none -optimize public/images/item13.jpg > public/images/item13-opt.jpg; jpegtran -copy none -optimize public/images/item14.jpg > public/images/item14-opt.jpg; jpegtran -copy none -optimize public/images/item15.jpg > public/images/item15-opt.jpg; jpegtran -copy none -optimize public/images/item16.jpg > public/images/item16-opt.jpg;
+
+	// remove images //
+	rm public/images/item*-opt.jpg
 
 	Lazy
 
@@ -48,26 +66,35 @@ Buscar //X//
 		<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 
 
-9) Sprite
-
-	<p>
-		<i class="sprite ico-users"></i>
-		<i class="sprite ico-clock"></i>
-		<i class="sprite ico-secure"></i>
-		<i class="sprite ico-trucks"></i>
-	<p>
-
 10) WebP
 	
-	10A
-	<p class="webp-bg"><img width="372" height="266" src="<%=createImageLink(convertWebP('/images/shoes-webp-80.png'))%>" ></p>
+	// Convert
+	cwebp -q 80 public/images/shoes.png -o public/images/shoes.webp
+
+	10A Add
+	<p class="webp-bg"><img width="372" height="266" src="<%=createImageLink(convertWebP('/images/shoes.png'))%>" ></p>
 
 	10A con esteroides
 	<p class="webp-bg"><img width="372" height="266" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=convertWebP(createImageLink('/images/shoes.png'))%>" ></p>
 
-	10B
+
+	// Convert
+	cwebp -q 80 public/images/big-image-optimized.jpg -o public/images/big-image-optimized.webp
+
+	10B Add
 	  <p><img width="900" height="2800" src="<%=convertWebP(createImageLink('/images/big-image-optimized.jpg?v1'))%>" ></p>
+
+	10B con esteroides
+	  <p><img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=convertWebP(createImageLink('/images/big-image-optimized.jpg?v1'))%>" ></p>
+
 
 11) Jpg progresivo
 
+	// Convert
+	jpegtran -copy none -progressive public/images/jpeg.jpg > public/images/jpeg-progressive.jpg;
+
+	// Add
 	<p><img width="870" src="<%=createImageLink('/images/jpeg-progressive.jpg')%>" ></p>
+
+	// On demandd
+	<img width="870" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/jpeg-progressive.jpg')%>" >

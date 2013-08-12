@@ -8,10 +8,10 @@
 	<title><%= title %></title>
 
 	<!-- //3// -->
-	<!--link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
+	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome.css')%>'/>
--->
+
 		
 	<!--
  	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-min-0.13.4.css')%>'/>
@@ -19,15 +19,18 @@
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' /> 
 	-->
 
+	<!--
 	
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/all.css')%>' />
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' />
+
+	-->
 	
-	<!--
+	
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
-	-->
+	
 	<!--
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.min.js')%>' ></script>
@@ -103,8 +106,7 @@
 				<p>Comprimiendo nuestros PNG24 podemos reducir el peso entre un 80% y 95%. <a href="http://www.smushit.com/ysmush.it/" target="_blank">Smush.it</a>, <a href="http://tinypng.org/" target="_blank">Tinypng</a>, <a href="https://github.com/gruntjs/grunt-contrib-imagemin" target="_blank">Grunt Plugin</a></p>
 
 				<!-- //6// -->
-	  			<!-- <p><img src="<%=createImageLink('/images/products.png')%>" /></p> -->
-	  			<p><img src="<%=createImageLink('/images/products-optimized.png')%>" /></p>
+	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
 
 			</article>
 			<article >
@@ -112,18 +114,12 @@
 				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. <a href="http://pixlr.com/editor/" target="_blank">Photoshop online</a></p>
 				
 				<!-- //9// -->
-				<!-- <p>
+				<p>
 					<img src="<%=createImageLink('/images/no-sprite-1.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-2.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-3.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-4.png')%>">
-				</p> -->
-				<p>
-					<i class="sprite ico-users"></i>
-					<i class="sprite ico-clock"></i>
-					<i class="sprite ico-secure"></i>
-					<i class="sprite ico-trucks"></i>
-				<p>
+				</p>
 
 			</article>
 			<article>
@@ -131,8 +127,7 @@
 				<p>Embebiendo la metadata de una imágen en base64, podemos evitar el llamado de la misma. Es una buena opción cuando tenemos imágenes menores a 1kb. <a href="http://webcodertools.com/imagetobase64converter/Create">Online convert</a></p>
 
 				<!-- //7// -->
-				<!-- <p><img src="<%=createImageLink('/images/datauri.png')%>" /></p> -->
-				<p><img alt="Truck" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAMAAAAGlBe5AAAAJFBMVEXl5eVMTExycnLZ2dmysrLy8vI/Pz/MzMxZWVm/v7////8zMzPLAzwAAAAAdUlEQVR42r3RSw6AIAwEUFDox7n/fbVQINHGjYmzgAwv6YKmY4RwS16GRz5ZoSe4FSC2RlLDmU6xkVFsFVC2BLbegpk/W30xslNUBTPCvaXsP6cOq8l1M8CtjV0lb7YHspmErVuebe2I9m46W2pVgM2ohUc7AS7fF7vA0Gc9AAAAAElFTkSuQmCC" /></p>
+				<p><img src="<%=createImageLink('/images/datauri.png')%>" /></p>
 
 			</article>
 			<article>
@@ -161,8 +156,7 @@
 				</p>
 
 				<!-- //11// -->
-				<!-- <p><img width="870" src="<%=createImageLink('/images/jpeg.jpg')%>" ></p> -->
-				<img width="870" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/jpeg-progressive.jpg')%>" >
+				<p><img width="870" src="<%=createImageLink('/images/jpeg.jpg')%>" ></p>
 			
 			</article>
 			<article class="imageWrapper">
@@ -172,15 +166,11 @@
 
 				<p>from PNG</p>
 				<!-- //10A// -->
-				<!-- <p class="webp-bg"><img width="372" height="266" src="<%=createImageLink('/images/shoes.png')%>" ></p> -->
-				<p class="webp-bg"><img width="372" height="266" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=convertWebP(createImageLink('/images/shoes.png'))%>" ></p>
+				<p class="webp-bg"><img width="372" height="266" src="<%=createImageLink('/images/shoes.png')%>" ></p>
 
 				<p>form JPEG</p>
 				<!-- //10B// -->
-				<!-- <p><img width="900" height="2800" src="<%=convertWebP(createImageLink('/images/big-image-optimized.jpg?v1'))%>" ></p> -->
-
-				<p><img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=convertWebP(createImageLink('/images/big-image-optimized.jpg?v1'))%>" ></p>
-
+				<p><img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg?v1')%>" ></p>
 
 			</article>
 
@@ -210,22 +200,22 @@
 			<article class="imageWrapper">
 				<ul class="items-list">
 					<!-- //8//A -->
-					<li><img src="<%=createImageLink('/images/item1-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item2-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item3-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item4-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item5-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item6-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item7-opt.jpg')%>" width="200" height="200"></li>
-		<li><img src="<%=createImageLink('/images/item8-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item9-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item10-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item11-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item12-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15-opt.jpg')%>" width="200" height="200"></li>
-		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16-opt.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+                    <li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
 				</ul>
 			</article>
 
@@ -254,8 +244,7 @@
 })(window);</pre>
 			</article>
 				<!-- //8//B -->
-	  			<!-- <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" > -->
-	  			<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 			</article>
 		</section>
 
@@ -393,16 +382,6 @@
 		<script type="text/javascript">
 		var prefech = '<%=createStaticLink('/stylesheets/page.css')%>';
 		</script>
-
-<script>
-	<!-- jcors-loader -->
-	(function(e){function l(){for(var b=!0,a,c=h,d=f.length;c<d&&b;)if(a=f[c],void 0!==a&&null!==a){if("string"===typeof a){var g=m.cloneNode(!1);g.text=a;i.parentNode.insertBefore(g,i)}else a.apply(e);h=c+1;f[c]=null;c+=1}else b=!1}function g(){if(f.length){var b=f.pop(),a;"string"===typeof b?(a=m.cloneNode(!0),a.type="text/javascript",a.async=!0,a.src=b,a.onload=a.onreadystatechange=function(){if(!a.readyState||/loaded|complete/.test(a.readyState))a.onload=a.onreadystatechange=null,a=void 0,g()},i.parentNode.insertBefore(a,i)):(b.apply(e),g())}}function p(b,a){return function(){f[a]=b.responseText;l();b=void 0}}function q(){var b=arguments.length,a,c;for(a=0;a<b;a+=1)"string"===typeof arguments[a]?(c=j(arguments[a]),c.onload=p(c,a+h),c.send()):(f[a+h]=arguments[a],l())}function r(){f=Array.prototype.slice.call(arguments,0).reverse();g()}var n=e.document,m=n.createElement("script"),i=n.getElementsByTagName("script")[0],f=[],h=0,j,d,k;e.XMLHttpRequest&&(d=new e.XMLHttpRequest,"withCredentials"in d?k=function(b){d=new e.XMLHttpRequest;d.open("get",b,!0);return d}:e.XDomainRequest&&(k=function(b){d=new e.XDomainRequest;d.open("get",b);return d}));j=k;e.JcorsLoader={load:j?q:r}})(window);
-</script>
-<script>
-	  JcorsLoader.load(
-	        '<%=createStaticLink('/javascripts/all.js')%>'
-	  );
-</script>
 	</div>
   </body>
 </html>
