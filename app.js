@@ -94,6 +94,7 @@ if ('development' == app.get('env')) {
 }
 
 //2//
+
 /*
 app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
 	res.set('Cache-Control', 'max-age=3000000');
