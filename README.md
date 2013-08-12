@@ -5,7 +5,6 @@ Requerimientos
 ---------------------
 node.js
 
-
 Configuracion
 ---------------------
 Agregar los siguentes host en el archivo /etc/hosts
