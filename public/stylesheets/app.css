@@ -230,109 +230,6 @@ section ul{
 	line-height: 24px;
 }
 
-tr {
-	padding-bottom: 10px;
-	display: block;
-}
-
-.demo{
-	border: 1px solid #ccc;
-	padding: 14px 10px;
-	border-radius: 4px;
-	margin-top: 10px;
-}
-
-.demo tr{
-	padding-bottom: 0;
-	display: inline;
-}
-
-.demo-inst{
-	border: 1px solid #ccc;
-	padding: 14px 10px;
-	border-radius: 4px;
-	margin-top: 10px;
-	background-color: #f2f2f2;
-	text-align: center;
-}
-
-.demo_mails{
-	border: 1px solid #ccc;
-	padding: 6px;
-	border-radius: 4px;
-	width: 45%;
-	min-width: 400px;
-	margin: 8px 0 20px 0;
-	display: table-cell;
-	vertical-align: top;
-}
-
-.demo_mails tr{
-	padding-bottom: 0;
-}
-
-.demo_mails_inst{
-	background-color: #f2f2f2;
-}
-
-.mail_wrapper {
-	display: block;
-	margin-bottom: 20px;
-}
-
-.unwrapp {
-	display: table-cell;
-	width: 10px;
-}
-
-.code_snippet_container{
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	padding: 10px;
-	max-height: 300px;
-	background-color: #000;
-	overflow: auto;
-	width: 73%; 
-	float: left;
-	margin: 10px 0 20px 0;
-}
-.code_snippet_container:hover .btn_copy{
-	visibility: visible;
-}
-.code_snippet_container_mail:hover .btn_copy{
-	visibility: visible;
-}
-
-.code_snippet_container_mail{
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	padding: 10px;
-	background-color: #000;
-	overflow: auto;
-	margin: 8px 0 0 10px;
-	display: table-cell;
-	position: relative;
-}
-
-.code_snippet_container_mail pre{
-/*		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;*/
-	padding: 10px;
-	z-index: 1;
-	max-height: 200px;
-}
-
-.code_snippet_in_text{
-	border: 1px solid #ccc;
-	padding: 2px 4px;
-	border-radius: 2px;
-	background-color: #f8f8f8;
-	color: #333;
-}
-
 /* GENERALS */
 
 a:visited {
@@ -423,7 +320,7 @@ a:visited {
 .performance-pannel {
 	background-color: rgba(0, 0, 0, .7);
 	color: #FFF;
-	height: 340px; width: 240px;
+	height: 365px; width: 240px;
 	padding: 20px 30px;
 	position: fixed;
 	top: 80px; right: 20px;
@@ -442,3 +339,18 @@ a:visited {
  *	Icons
  */
 
+
+/**
+ * Code snippet
+ */
+pre, code {
+	font-family: Monaco, "Courier New", monospace;
+	font-size: 12px;
+	background-color: #f8f8f8;
+	color: #333;
+	border: 1px solid #ccc;
+	margin: 10px 0;
+	padding: 7px 10px;
+	border-radius: 3px;
+	overflow: scroll;
+}
