@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 //1//
-//app.use(express.compress());
+app.use(express.compress());
 
 //enviroment
 //var isDev = ('development' == app.get('env'));
