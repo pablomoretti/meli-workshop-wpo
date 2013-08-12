@@ -8,7 +8,7 @@
 	<title><%= title %></title>
 
 	<!-- //3// -->
-	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
+	<!--link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
 
@@ -19,14 +19,14 @@
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' />
 	-->
 
-	<!--
+
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-app-min.css')%>' />
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' />
-	-->
 
-	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
+
+	<!--<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.js')%>' ></script>
 	<script src='<%=createStaticLink('/javascripts/jquery.lazyload.js')%>' ></script>
-	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>
+	<script src='<%=createStaticLink('/javascripts/app.js')%>' ></script>-->
 
 	<!--
 	<script src='<%=createStaticLink('/javascripts/jquery-1.10.2.min.js')%>' ></script>
@@ -102,7 +102,8 @@
 				<p>Comprimiendo nuestros PNG24 podemos reducir el peso entre un 80% y 95%. <a href="http://www.smushit.com/ysmush.it/" target="_blank">Smush.it</a>, <a href="http://tinypng.org/" target="_blank">Tinypng</a>, <a href="https://github.com/gruntjs/grunt-contrib-imagemin" target="_blank">Grunt Plugin</a></p>
 
 				<!-- //6// -->
-	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
+	  			<!-- <p><img src="<%=createImageLink('/images/products.png')%>" /></p> -->
+	  			<p><img src="<%=createImageLink('/images/products-optimized.png')%>" /></p>
 
 			</article>
 			<article >
@@ -110,12 +111,18 @@
 				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. <a href="http://pixlr.com/editor/" target="_blank">Photoshop online</a></p>
 				
 				<!-- //9// -->
-				<p>
+				<!-- <p>
 					<img src="<%=createImageLink('/images/no-sprite-1.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-2.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-3.png')%>">
 					<img src="<%=createImageLink('/images/no-sprite-4.png')%>">
-				</p>
+				</p> -->
+				<p>
+					<i class="sprite ico-users"></i>
+					<i class="sprite ico-clock"></i>
+					<i class="sprite ico-secure"></i>
+					<i class="sprite ico-trucks"></i>
+				<p>
 
 			</article>
 			<article>
@@ -123,7 +130,8 @@
 				<p>Embebiendo la metadata de una imágen en base64, podemos evitar el llamado de la misma. Es una buena opción cuando tenemos imágenes menores a 1kb. <a href="http://webcodertools.com/imagetobase64converter/Create">Online convert</a></p>
 
 				<!-- //7// -->
-				<p><img src="<%=createImageLink('/images/datauri.png')%>" /></p>
+				<!-- <p><img src="<%=createImageLink('/images/datauri.png')%>" /></p> -->
+				<p><img alt="Truck" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAWCAMAAAAGlBe5AAAAJFBMVEXl5eVMTExycnLZ2dmysrLy8vI/Pz/MzMxZWVm/v7////8zMzPLAzwAAAAAdUlEQVR42r3RSw6AIAwEUFDox7n/fbVQINHGjYmzgAwv6YKmY4RwS16GRz5ZoSe4FSC2RlLDmU6xkVFsFVC2BLbegpk/W30xslNUBTPCvaXsP6cOq8l1M8CtjV0lb7YHspmErVuebe2I9m46W2pVgM2ohUc7AS7fF7vA0Gc9AAAAAElFTkSuQmCC" /></p>
 
 			</article>
 			<article>
@@ -204,14 +212,22 @@
 					<li><img src="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+					<!-- <li><img src="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
 					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
+					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li> -->
+					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
 				</ul>
 			</article>
 
@@ -240,7 +256,8 @@
 })(window);</pre>
 			</article>
 				<!-- //8//B -->
-	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
+	  			<!-- <img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" > -->
+	  			<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 			</article>
 		</section>
 
@@ -378,7 +395,7 @@
 		<script type="text/javascript">
 		var prefech = '<%=createStaticLink('/stylesheets/page.css')%>';
 		</script>
-
+		<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
 
 	</div>
   </body>

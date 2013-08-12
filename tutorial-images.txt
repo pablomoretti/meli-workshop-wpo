@@ -6,7 +6,7 @@ Buscar //X//
 
 6) Optimizar imagenes
 
-	<img src="<%=createImageLink('/images/products-optimized.png')%>" />
+	<p><img src="<%=createImageLink('/images/products-optimized.png')%>" /></p>
 
 
 7) data: base64
