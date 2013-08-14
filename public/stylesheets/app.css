@@ -339,6 +339,25 @@ a:visited {
  *	Icons
  */
 
+.sprite {
+	background-image: url('../images/sprite.png');
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 28px; height: 28px;
+}
+.ico-users {
+	background-position: 0 0;
+}
+.ico-clock {
+	background-position: 0 -34px;
+}
+.ico-secure {
+	background-position: 0 -70px;
+}
+.ico-trucks {
+	background-position: 0 -104px;
+}
+
 
 /**
  * Code snippet
@@ -354,3 +373,15 @@ pre, code {
 	border-radius: 3px;
 	overflow: scroll;
 }
+
+
+/**
+ * Webp
+ */
+
+.webp-bg {
+	background: #EEE;
+	width: 380px;
+	padding: 10px;
+}
+

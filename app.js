@@ -19,7 +19,8 @@ app.set('view engine', 'ejs');
 //app.use(express.compress());
 
 //enviroment
-var isDev = ('development' == app.get('env'));
+//var isDev = ('development' == app.get('env'));
+var isDev = !(process.env.PORT || false)
 
 String.prototype.hashCode = function(){
     var hash = 0;
@@ -34,10 +35,11 @@ String.prototype.hashCode = function(){
 
 function enviromentHost(url){
     if(isDev){
+    //if(false){
       return url;
     }else{
-      return url.replace('dev-','');
-      //return url.replace('dev-','').replace(':3000','');
+      //return url.replace('dev-','');
+      return url.replace('dev-','').replace(':3000','');
     }
 }
 
@@ -51,6 +53,7 @@ app.locals.createStaticLink = function(paht) {
 }
 
 //5//
+
 var imagesHost = [
   ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':'')),
   ('http://' + 'dev-meli-workshop-wpo.herokuapp.com' + ((isDev)?':3000':''))
@@ -91,13 +94,14 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//2//
+//2
 /*
 app.all(/((^\/javascripts\/.*)|(^\/stylesheets\/.*)|(^\/images\/.*))$/, function(req, res, next){
 	res.set('Cache-Control', 'max-age=3000000');
     next();
 });
 */
+
 
 /*
 app.all('*', function(req, res, next){
@@ -109,6 +113,8 @@ app.all('*', function(req, res, next){
 app.get('/', routes.index);
 
 app.get('/page', routes.page);
+app.get('/lazy', routes.lazy);
+app.get('/ondemand', routes.ondemand);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

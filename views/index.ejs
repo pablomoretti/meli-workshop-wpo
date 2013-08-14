@@ -8,9 +8,7 @@
 	<title><%= title %></title>
 
 	<!-- //3// -->
-		
-	<!--
-	-->
+
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/chico-0.13.4.css')%>'/>
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/app.css')%>' />
 	<link rel='stylesheet' href='<%=createStaticLink('/stylesheets/font-awesome/css/font-awesome.min.css')%>' />
@@ -38,18 +36,13 @@
 	-->
 	<!--	
 	<script src='<%=createStaticLink('/javascripts/all.js')%>' ></script>
-	-->
+	-->	
+	
 </head>
 <body>
 	  
 	<header>
 		<h1><%= title %></h1>
-		<ul>
-			<!--li class="navSection"><a href="#server">Server</a></li>
-			<li class="navSection"><a href="#images">Imagenes</a></li>
-			<li class="navSection"><a href="#javascript">Javascript</a></li-->
-			<!-- <li class="navSection"><a href="#navEjemplos">Ejemplos</a></li> -->
-		</ul>
 	</header>
 
 	<div class="wraperBody">
@@ -61,7 +54,7 @@
 			<h4>Onload</h4>
 			<p id="timerOnloaded">0 ms</p>
 			<h4>Fully Loaded</h4>
-			<p id="timerTotal">0 sms</p>
+			<p id="timerTotal">0 ms</p>
 		</section>
 		
 		<section id="server">
@@ -104,38 +97,58 @@
 		<section id="images">
 			<h2 class="definicion">Imágenes</h2>
 
-			<!-- //6// --> <!-- //7// -->
+			
 			<article class="imageWrapper">
 				<h3>Optimización PNG</h3>
-				<p>Comprimiendo nuestros PNG24 podemos reducir el peso en un 80% </p>
-	  			<p><img src="<%=createImageLink('/images/products.png')%>" /></p>
-	  			<!-- <img src="<%=createImageLink('/images/products-optimized.png')%>" /> -->
+				<p>Comprimiendo nuestros PNG24 podemos reducir el peso entre un 80% y 95%. <a href="http://www.smushit.com/ysmush.it/" target="_blank">Smush.it</a>, <a href="http://tinypng.org/" target="_blank">Tinypng</a>, <a href="https://github.com/gruntjs/grunt-contrib-imagemin" target="_blank">Grunt Plugin</a></p>
+
+				<!-- //6// -->
+	  			<p><img src="<%=createImageLink('/images/products-optimized.png')%>" /></p>
+
 			</article>
 			<article >
 				<h3 class="definicion">Sprites</h3>
-				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. </p>
+				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra multiples request a imágenes. <a href="http://pixlr.com/editor/" target="_blank">Photoshop online</a></p>
+				
+				<!-- //9// -->
 				<ul class="small-image-list">
-					<li><img src="<%=createImageLink('/images/rocket.png')%>" width="36" height="36"></li>
-					<li><img src="<%=createImageLink('/images/spriteIm1.png')%>" width="36" height="36"></li>
-					<li><img src="<%=createImageLink('/images/spriteIm2.png')%>" width="36" height="36"></li>
-					<li><img src="<%=createImageLink('/images/spriteIm3.png')%>" width="36" height="36"></li>
-				</ul>
+					<li><img width="27" height="22" src="<%=createImageLink('/images/no-sprite-1.png')%>" ></li>
+					<li><img width="27" height="22" src="<%=createImageLink('/images/no-sprite-2.png')%>" ></li>
+					<li><img width="27" height="22" src="<%=createImageLink('/images/no-sprite-3.png')%>" ></li>
+					<li><img width="27" height="22" src="<%=createImageLink('/images/no-sprite-4.png')%>" ></li>					
+				</ul>				
+				<!--
+				<p>
+					<i class="sprite ico-users"></i>
+					<i class="sprite ico-clock"></i>
+					<i class="sprite ico-secure"></i>
+					<i class="sprite ico-trucks"></i>
+				<p>
+				-->
+
+		
+
 			</article>
 			<article>
 				<h3 class="definicion">Data:Uri</h3>
-				<p>Es una imagen formada por varias imágenes pequeñas, cada imagen se muestra como un segmento del sprite. Permite ahorra múltiples request a imágenes.</p>
-				<div class="rockets-data-uri"></div>		
+				<p>Embebiendo la metadata de una imágen en base64, podemos evitar el llamado de la misma. Es una buena opción cuando tenemos imágenes menores a 1kb. <a href="http://webcodertools.com/imagetobase64converter/Create">Online convert</a></p>
+
+				<!-- //7// -->
+				<!--				
+				<p><img alt="Truck" src="data:image/png;base64,iVBORwsrc="<%=createImageLink('/images/no-sprite-1.png')%>"0KGgoAAAANSUhEUgAAABsAAAAWCAMAAAAGlBe5AAAAJFBMVEXl5eVMTExycnLZ2dmysrLy8vI/Pz/MzMxZWVm/v7////8zMzPLAzwAAAAAdUlEQVR42r3RSw6AIAwEUFDox7n/fbVQINHGjYmzgAwv6YKmY4RwS16GRz5ZoSe4FSC2RlLDmU6xkVFsFVC2BLbegpk/W30xslNUBTPCvaXsP6cOq8l1M8CtjV0lb7YHspmErVuebe2I9m46W2pVgM2ohUc7AS7fF7vA0Gc9AAAAAElFTkSuQmCC" /></p>
+				-->
+				<p><img  alt="Truck" height="22" width="27" src="<%=createImageLink('/images/no-sprite-4.png')%>"/>
 			</article>
 			<article>
 				<h3 class="definicion">Icon Fonts</h3>
-				<p>Imágenes vectoriales embebidas en fuentes, que nos permiten cambiarle el color, tamaño, estilos y aplicarle efectos. Reducimos la cantidad de request y podemos utiliarlas en distintinas densidades de pantalla.</p>
+				<p>Imágenes vectoriales embebidas en fuentes, que nos permiten cambiarle el color, tamaño, estilos y aplicarle efectos. Reducimos la cantidad de request y podemos utiliarlas en distintinas densidades de pantalla. <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a>, <a href="http://icomoon.io/" target="_blank">Icon Moon</a>, <a href="http://pictos.cc/font/" target="_blank">Pictos</a>, <a href="http://fontello.com/" target="_blank">Fontello</a></p>
 			</article>
 			<article>
 				<ul class="small-image-list" >
-					<li><i class="icon-rocket">&nbsp;Defualt</i></li>
-					<li><i class="icon-rocket icon-2x"></i>&nbsp;2X size</li>
-					<li><i class="icon-rocket icon-rotate-90">&nbsp;Rotate 90</i></li>
-					<li><i class="icon-rocket icon-flip-horizontal">&nbsp;Flips</i></li>
+					<li><i class="icon-rocket icon-2x"></i>&nbsp;Default</li>
+					<li><i class="icon-rocket icon-3x"></i>&nbsp;3X size</li>
+					<li><i class="icon-rocket icon-2x icon-rotate-90"></i>&nbsp;Rotate 90</li>
+					<li><i class="icon-rocket icon-2x icon-flip-horizontal"></i>&nbsp;Flips</li>
 					<li>
 						<span class="icon-stack">
 						  <i class="icon-rocket"></i>
@@ -146,17 +159,33 @@
 			</article>
 			<article class="imageWrapper">
 				<h3>Progressive JPEG</h3>
-				<!-- <p><img width="870" src="<%=createImageLink('/images/jpeg.jpg')%>" ></p> -->
-				<p><img width="870" src="<%=createImageLink('/images/jpeg-opt.jpg')%>" ></p>
+				<p>Es un tipo de codificación del formato JPG. A diferencia del tipo baseline, en donde la imágen se carga de de arriba hacia abajo en un uníco barrido, con JPG Progresivo la imágen se va cargando por capas mejorando la calidad una tras otra. <a href="http://jpegclub.org/jpegtran/">Jpegtran</a>, <a href="http://www.phpied.com/installing-jpegtran-mac-unix-linux/" target="_blank">Install Jpegtran</a>, <a href="http://techslides.com/demos/progressive-test.html" target="_blank">Test Progressive</a></p>
+
+				<p>Ejemplos: <a href="<%=createImageLink('/images/jpeg.jpg')%>">Baseline</a>, <a href="<%=createImageLink('/images/jpeg-progressive.jpg')%>">Progressive</a>
+				</p>
+
+				<!-- //11// -->
+				<p><img width="870" src="<%=createImageLink('/images/jpeg-progressive.jpg')%>" ></p>
+			
 			</article>
 			<article class="imageWrapper">
+
 				<h3>WEBP</h3>
-				<p>WIP</p>
+				<p>Es un nuevo formato de imágen desarrollado por Google. Como grandes ventajas pesa un 26% menos comparado con un PNG, y entre un 25-34% menos que un JPEG. <a href="https://developers.google.com/speed/webp/docs/precompiled" target="_blank">Install webp</a>, <a href="http://imagen.online-convert.com/es/convertir-a-webp" target="_blank">Online convert</a></p>
+
+				<p>from PNG</p>
+				<!-- //10A// -->
+				<p class="webp-bg"><img width="372" height="266" src="<%=createImageLink(convertWebP('/images/shoes.png'))%>" ></p>
+
+				<p>form JPEG</p>
+				<!-- //10B// -->
+				<p><img width="900" height="2800" src="<%=convertWebP(createImageLink('/images/big-image-optimized.jpg?v1'))%>" ></p>
+
 			</article>
-			<!-- //8//A -->
+
 			<article>
 				<h3>Recursos lazy load</h3>
-				<p>Descargamos las imágenes en el document complete.</p>
+				<p>Descargamos las imágenes en el document complete. <a href="/lazy">Ejemplo</a></p>
 			</article>
 			<article class="code_snippet_container">
 				<pre>
@@ -179,46 +208,29 @@
 			</article>
 			<article class="imageWrapper">
 				<ul class="items-list">
-					<li><img src="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img src="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
-					
-					<!-- <li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item1.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item2.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item3.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item4.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item5.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item6.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item7.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item8.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item9.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item10.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item11.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item12.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15.jpg')%>" width="200" height="200"></li>
-					<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16.jpg')%>" width="200" height="200"></li>
-				</ul> -->
+					<!-- //8//A -->
+					<li><img src="<%=createImageLink('/images/item1-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item2-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item3-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item4-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item5-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item6-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item7-opt.jpg')%>" width="200" height="200"></li>
+		<li><img src="<%=createImageLink('/images/item8-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item9-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item10-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item11-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item12-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item13-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item14-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item15-opt.jpg')%>" width="200" height="200"></li>
+		<li><img class="lazy" src="" data-src-original="<%=createImageLink('/images/item16-opt.jpg')%>" width="200" height="200"></li>
+				</ul>
 			</article>
 
-			<!-- //8//B -->
 			<article class="imageWrapper">
 				<h3>Recursos bajo demanda</h3>
-				<p>La descarga bajo demanda, evita que se realicen llamados a recursos que el usuario no visualiza. Utilizando los eventos que tenemos disponibles en el objeto window, podemos realizar estos llamados.</p>
+				<p>La descarga bajo demanda, evita que se realicen llamados a recursos que el usuario no visualiza. Utilizando los eventos que tenemos disponibles en el objeto window, podemos realizar estos llamados. <a href="/ondemand">Ejemplo</a></p>
 				<p>Usando el evento scroll para descargar una imágen.</p>
 			</article>
 			<article class="code_snippet_container">
@@ -240,10 +252,12 @@
 	}
 })(window);</pre>
 			</article>
-	  			<img width="900" height="2800" src="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
-	  			<!-- <img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" > -->
+				<!-- //8//B -->
+	  			<img width="900" height="2800" class="scroll" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src-original="<%=createImageLink('/images/big-image-optimized.jpg')%>" >
 			</article>
 		</section>
+
+
 		<section id="javascript">
 			<h2 class="definicion">Javascript</h2>
 			<article>
@@ -313,7 +327,7 @@
 &lt;/script&gt;</pre>
 			</article>
 			<article>
-				<h3>Javscript de terceros</h3>
+				<h3>Javscript de terceros <a href="/page">page</a></h3>
 				<p>Facebook SDK (Like bottom).</p>
 			</article>
 			<article class="code_snippet_container">
@@ -341,7 +355,7 @@
 &lt;/script&gt;</pre>
 			</article>
 			<article>
-				<p>Ads (internos y externos).</p>
+				<p>Ads (internos).</p>
 			</article>
 			<article class="code_snippet_container">
 				<pre>
@@ -363,7 +377,20 @@
 	}(&quot;/static/ads-friendly-iframe.js&quot;));
 &lt;/script&gt;</pre>
 			</article>
+
+			<article>
+				<h3>Precarga de recursos <a href="/page">page</a></h3>
+				<p>stylesheets</p>
+			</article>
+			<article class="code_snippet_container">
+				<pre>(function&nbsp;preload(jqueryWindow){<br/><br/>	var&nbsp;isLoadead&nbsp;=&nbsp;(document.readyState&nbsp;===&nbsp;&quot;complete&quot;);<br/><br/><br/>	function&nbsp;preloadResouces(arr)&nbsp;{<br/>	&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;i&nbsp;=&nbsp;arr.length,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;document,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;d.body,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isIE&nbsp;=&nbsp;'fileSize'&nbsp;in&nbsp;document,<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(i--)&nbsp;{<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isIE)&nbsp;{<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;Image().src&nbsp;=&nbsp;arr[i];<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>			o&nbsp;=&nbsp;d.createElement('object');<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	o.data&nbsp;=&nbsp;arr[i];<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	o.width&nbsp;=&nbsp;o.height&nbsp;=&nbsp;0;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	o.style.position&nbsp;=&nbsp;&quot;absolute&quot;;<br/>	&nbsp;&nbsp;&nbsp;&nbsp;	b.appendChild(o);<br/>	&nbsp;&nbsp;&nbsp;&nbsp;}<br/>	}<br/><br/>	function&nbsp;init(){<br/>		//preloadResouces([prefech]);<br/>	}<br/><br/>	if&nbsp;(isLoadead)&nbsp;{<br/>		init();<br/>	}else{<br/>		jqueryWindow.load(init);<br/>	}<br/>	<br/>})(locaJqueryWindow);
+				</pre>
+			</article>
+
 		</section>
+		<script type="text/javascript">
+		var prefech = '<%=createStaticLink('/stylesheets/page.css')%>';
+		</script>
 	</div>
   </body>
 </html>

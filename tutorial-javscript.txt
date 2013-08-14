@@ -124,8 +124,15 @@ Google Analytics
 Estamos trabajando en esto  !!!
 
 
+
 9) Escenario con pixeles de trackeo
 Corregir el loading para no blockear descargas, render y onload
 
 10) Js que dibuje cosas ( agregar elementos, rows ) con problemas de repaint/relayout
 Fix de eso
+
+16 ) Precache
+
+Estandar DNS
+
+    <link rel="dns-prefetch" href="//www.domain2.com">
